@@ -3,15 +3,20 @@ const debug = require('debug')('booking-now:db')
 
 async function connect() {
     try {
-        await mongoose.connect(process.env.DB_URI, {
-            useNewUrlParser: true,
-            useUnifiedTopology: true,
-            useFindAndModify: false,
-            useCreateIndex: true
-        });
-        debug('connected successfully!')
+        await mongoose.connect(
+            process.env.DB_URI,
+            //'mongodb+srv://anhhuu:bLQlvoct2i2pKuet@booking-now-cluster.614b6.mongodb.net/booking-now-dev1_0?retryWrites=true&w=majority', 
+            {
+                useNewUrlParser: true,
+                useUnifiedTopology: true,
+                useFindAndModify: false,
+                useCreateIndex: true
+            });
+        debug('connected successfully!');
+        //console.log('connected successfully!')
     } catch (error) {
         debug('connected failure! <' + error + '>');
+        //console.log('connected failure! <' + error + '>');
     }
 }
 

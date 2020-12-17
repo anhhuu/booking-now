@@ -4,9 +4,7 @@ const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const debugHttp = require('debug')('booking-now:http')
-const indexRouter = require('./routes/index');
-const usersRouter = require('./routes/users');
-
+const route = require('./routes').route;
 const app = express();
 
 const db = require('./config/db');
@@ -22,8 +20,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/', indexRouter);
-app.use('/users', usersRouter);
+route(app);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
