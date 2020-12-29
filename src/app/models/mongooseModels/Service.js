@@ -12,6 +12,7 @@ const Service = new Schema({
     description: Array, //title: string, description: string
     imgs_url: Array,
     rating: Number,
+    flashsale: Number,
     menu_imgs: Array,
     provider_id: { type: mongoose.Schema.Types.ObjectId, ref: "User" },
     type_id: { type: mongoose.Schema.Types.ObjectId, ref: "Type" },

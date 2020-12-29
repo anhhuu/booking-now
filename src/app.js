@@ -3,16 +3,21 @@ const express = require('express');
 const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
-const debugHttp = require('debug')('booking-now:http')
-const route = require('./routes').route;
 const app = express();
+const debugHttp = require('debug')('booking-now:http')
 
+const expressLayouts = require('express-ejs-layouts')
 const db = require('./config/db');
+
+const route = require('./routes').route;
+
 db.connect();
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
+app.use(expressLayouts);
+app.set('layout', 'layouts/main');
 
 app.use(logger('dev', { stream: { write: msg => debugHttp(msg.trimEnd()) } }));
 app.use(express.json());

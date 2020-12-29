@@ -1,0 +1,43 @@
+*, ::after, ::before{
+    box-sizing: border-box;
+
+}
+html {
+    -ms-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;;
+    font-size: 62.5%;
+    line-height: 18px
+}
+
+body {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;;
+    margin: 0;
+    background: #eee;
+    position: relative
+}
+.container{
+    max-width: 100%;
+    padding: 0rem 10rem !important;
+    /*margin-top: 2rem !important;*/    
+}
+.footer{
+    max-width: 100%;
+    padding: 0rem 10rem !important;
+}
+
+
+@font-face {
+    font-family: 'Roboto-Bold';
+    src: url(../fontroboto/Roboto-Bold.woff) format("woff")
+}
+
+@font-face {
+    font-family: 'Roboto-Medium';
+    src: url("../fontroboto/Roboto-Medium.woff") format("woff")
+}
+
+@font-face {
+    font-family: 'roboto-regular';
+    src: url("../fontroboto/roboto-regular.woff") format("woff")
+}

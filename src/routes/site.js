@@ -1,9 +1,9 @@
 const express = require('express');
 const router = express.Router();
 
+const siteController = require('../app/controllers/siteController')
+
 /* GET home page. */
-router.get('/', function(req, res, next) {
-    res.render('index', { title: 'Booking - now' });
-});
+router.get('/', siteController.index);
 
 module.exports = router;
