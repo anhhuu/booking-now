@@ -26,6 +26,14 @@ body {
     padding: 0rem 10rem !important;
 }
 
+.hide {
+    display: none !important
+}
+
+@font-face {
+    font-family: 'glyphicons-halflings-regular';
+    src: url("../font/glyphicons-halflings-regular.woff") format("woff")
+}
 
 @font-face {
     font-family: 'Roboto-Bold';
@@ -40,4 +48,95 @@ body {
 @font-face {
     font-family: 'roboto-regular';
     src: url("../fontroboto/roboto-regular.woff") format("woff")
+}
+.glyphicon {
+    font-family: glyphicons-halflings-regular !important
+}
+
+.glyphicon-remove:before {
+    content: ""
+}
+
+.glyphicon-time:before {
+    content: ""
+}
+
+.glyphicon-facetime-video:before {
+    content: ""
+}
+
+.glyphicon-star-empty:before {
+    content: ""
+}
+
+.glyphicon-info-sign:before {
+    content: ""
+}
+
+.glyphicon-usd:before {
+    content: ""
+}
+
+.glyphicon-star:before {
+    content: ""
+}
+
+.glyphicon-search:before {
+    content: ""
+}
+
+.glyphicon-user:before {
+    content: ""
+}
+
+.glyphicon-calendar:before {
+    content: "📅"
+}
+
+.glyphicon-time:before {
+    content: ""
+}
+
+.glyphicon-lock:before {
+    content: "🔒"
+}
+
+.glyphicon-calendar:before {
+    content: "📅"
+}
+
+.glyphicon-log-out:before {
+    content: ""
+}
+
+.glyphicon-check:before {
+    content: ""
+}
+
+.glyphicon-th:before {
+    content: ""
+}
+
+.glyphicon-th-large:before {
+    content: ""
+}
+
+.glyphicon-chevron-right:before {
+    content: ""
+}
+
+.glyphicon-chevron-left:before {
+    content: ""
+}
+
+.glyphicon-glyphicon-map-marker {
+    content: ""
+}
+
+.glyphicon-glyphicon-usd {
+    content: ""
+}
+
+.glyphicon-glyphicon-tag {
+    content: ""
 }
