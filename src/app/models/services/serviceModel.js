@@ -9,7 +9,38 @@ module.exports.getList = async(page, limit) => {
             limit = 10;
         }
         const services = await Service.find({}).skip(page * limit - limit).limit(limit).lean();
-        return services;
+        const total = await Service.find({}).countDocuments();
+        numberOfPage = total / limit;
+        return {
+            services,
+            numberOfPage
+        }
+    } catch (error) {
+        throw error;
+    }
+}
+
+module.exports.searchByName = async(page, limit, keyword) => {
+    try {
+        if (!page) {
+            page = 1;
+        }
+
+        if (!limit) {
+            limit = 20;
+        }
+
+        let services = await Service.find({ $text: { $search: keyword } }).skip(limit * page - limit)
+            .limit(limit).lean();
+
+        const total = await Service.find({ $text: { $search: keyword } }).countDocuments();
+        numberOfPage = Math.ceil(total / limit);
+        return {
+            services,
+            numberOfPage,
+            total
+        }
+
     } catch (error) {
         throw error;
     }

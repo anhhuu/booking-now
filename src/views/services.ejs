@@ -5,9 +5,8 @@
             <div class="wapcontent">
                 <div class="row">
                     <div class="col-md-12">
-                        <h1 style="border-bottom: 1px solid rgb(230, 230, 230); padding-bottom: 2rem;">Ăn uống &#62; Nhà
-                            hàng
-                            trên Booking Now
+                        <h1 style="border-bottom: 1px solid rgb(230, 230, 230); padding-bottom: 2rem;">Ăn uống &#62;
+                            <%= servicesTitle %>
                         </h1>
                     </div>
                 </div>
@@ -49,29 +48,53 @@
                             </div>
                         </div>
                     </div>
-
                     <% } %>
-                    <!-- pagination -->
-                    <nav>
-                        <ul class="pagination justify-content-center">
-                            <li class="page-item">
-                                <a class="page-link" href="#" aria-label="Previous">
+                </div>
+                <% if(numberOfPage > 1) { %>
+                <div class="mt-4 row bknow-collection d-flex justify-content-center">
+                    <div class="navigation">
+                        <ul class="pagination">
+                            <% if(typeof(q) == 'undefined' || !q) {%>
+                            <li>
+                                <a href="/services?page=1" aria-label="Previous">
                                     <span aria-hidden="true">&laquo;</span>
                                 </a>
                             </li>
-                            <li class="page-item"><a class="page-link" href="#">1</a></li>
-                            <li class="page-item"><a class="page-link" href="#">2</a></li>
-                            <li class="page-item"><a class="page-link" href="#">3</a></li>
-                            <li class="page-item">
-                                <a class="page-link" href="#" aria-label="Next">
+                            <% for(let i = 0; i < numberOfPage; i++) { %>
+                            <li class="  <% if( i + 1 == +page) { %> <%= 'active' %> <% } %>"><a
+                                    href="/services?page=<%= i + 1 %>"><%= i + 1 %></a></li>
+                            <% } %>
+                            <li>
+                                <a href="/services?page=<%= numberOfPage %>" aria-label="Next">
                                     <span aria-hidden="true">&raquo;</span>
                                 </a>
                             </li>
+                            <% } else { %>
+                            <li>
+                                <a href="/search?q=<%= q %>&page=1" aria-label="Previous">
+                                    <span aria-hidden="true">&laquo;</span>
+                                </a>
+                            </li>
+                            <% for(let i = 0; i < numberOfPage; i++) { %>
+                            <li class="  <% if( i + 1 == +page) { %> <%= 'active' %> <% } %>"><a
+                                    href="/search?q=<%= q %>&page=<%= i + 1 %>"><%= i + 1 %></a></li>
+                            <% } %>
+                            <li>
+                                <a href="/search?q=<%= q %>&page=<%= numberOfPage %> " aria-label="Next">
+                                    <span aria-hidden="true">&raquo;</span>
+                                </a>
+                            </li>
+                            <% } %>
                         </ul>
-                    </nav>
-
+                    </div>
                 </div>
+                <% } %>
+
+                <!-- pagination  -->
+
+
             </div>
-        </section>
     </div>
+    </section>
+</div>
 </div>

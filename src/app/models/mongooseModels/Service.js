@@ -20,4 +20,7 @@ const Service = new Schema({
     timestamps: true,
 });
 
+
+Service.index({ name: 'text' });
+
 module.exports = mongoose.model('Service', Service);

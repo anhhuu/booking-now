@@ -10,9 +10,33 @@ module.exports.index = async(req, res, next) => {
     //console.log(sliderServices);
     res.render('index', {
         title: 'Booking now - Đặt bàn online',
-        sliderServices: sliderServices,
+        sliderServices: sliderServices.services,
         flashsaleServices: flashsaleServices,
-        newerServices: newerServices,
-        recommendServices: recommendServices,
+        newerServices: newerServices.services,
+        recommendServices: recommendServices.services,
+    });
+}
+
+
+module.exports.search = async(req, res, next) => {
+    let page = req.query.page;
+    if (!page) {
+        page = 1;
+    }
+
+    const q = req.query.q;
+    page = req.query.page;
+    if (!page || page < 0) {
+        page = 1;
+    }
+    let data = await serviceModel.searchByName(page, 20, q);
+
+    res.render('services', {
+        title: 'Nhà hàng ăn uống',
+        servicesTitle: 'Có ' + data.total + ' kết quả với từ khoá "' + q + '"',
+        q: q,
+        services: data.services,
+        numberOfPage: data.numberOfPage,
+        page: page
     });
 }
