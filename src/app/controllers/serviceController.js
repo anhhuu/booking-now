@@ -16,3 +16,13 @@ module.exports.index = async(req, res, next) => {
         page: page
     });
 }
+
+module.exports.showService = async(req, res, next) => {
+    console.log(req.params.url);
+    let service = await serviceModel.getByURL(req.params.url);
+    res.render('serviceShow', {
+        title: service.name,
+        servicesTitle: 'Nhà hàng trên Booking Now',
+        service: service
+    })
+}

@@ -61,21 +61,34 @@ module.exports.getListFlashsale = async(page, limit) => {
     }
 }
 
+module.exports.getByURL = async(url) => {
+    try {
+        let service = Service.findOne({
+            url: url
+        }).lean();
+
+        return service;
+    } catch (error) {
+        throw error;
+    }
+}
+
 module.exports.save = async(serviceObj) => {
     try {
         let service = new Service({
             name: serviceObj.name,
             url: serviceObj.url,
             address: serviceObj.address,
-            oprating: serviceObj.oprating,
+            operating: serviceObj.operating,
             rating: serviceObj.rating,
-            flashsale: serviceObj.flashsale,
+            flash_sale: serviceObj.flash_sale,
             price_range: serviceObj.price_range,
             introduction_content: serviceObj.introduction_content,
             description: serviceObj.description,
             imgs_url: serviceObj.imgs_url,
             menu_imgs: serviceObj.menu_imgs,
             provider_id: serviceObj.provider_id,
+            address_img: serviceObj.address_img,
             type_id: serviceObj.type_id,
         })
 

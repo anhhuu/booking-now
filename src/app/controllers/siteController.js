@@ -9,11 +9,14 @@ module.exports.index = async(req, res, next) => {
 
     //console.log(sliderServices);
     res.render('index', {
-        title: 'Booking now - Đặt bàn online',
+        title: 'Đặt bàn online với Booking Now',
         sliderServices: sliderServices.services,
         flashsaleServices: flashsaleServices,
         newerServices: newerServices.services,
         recommendServices: recommendServices.services,
+    }, (err, html) => {
+        console.log(res.locals);
+        res.send(html);
     });
 }
 

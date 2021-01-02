@@ -5,5 +5,7 @@ const serviceController = require('../app/controllers/serviceController')
 
 /* GET home page. */
 router.get('/', serviceController.index);
+router.get('/:url', serviceController.showService);
+
 
 module.exports = router;

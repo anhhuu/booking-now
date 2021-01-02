@@ -1,27 +1,30 @@
-*, ::after, ::before{
+*,
+ ::after,
+ ::before {
     box-sizing: border-box;
-
 }
+
 html {
     -ms-text-size-adjust: 100%;
     -webkit-text-size-adjust: 100%;
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-size: 62.5%;
-    line-height: 18px
+    line-height: 1.8rem
 }
 
 body {
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;;
     margin: 0;
     background: #eee;
     position: relative
 }
-.container{
+
+.container {
     max-width: 100%;
     padding: 0rem 10rem !important;
-    /*margin-top: 2rem !important;*/    
+    /*margin-top: 2rem !important;*/
 }
-.footer{
+
+.footer {
     max-width: 100%;
     padding: 0rem 10rem !important;
 }
@@ -49,6 +52,7 @@ body {
     font-family: 'roboto-regular';
     src: url("../fontroboto/roboto-regular.woff") format("woff")
 }
+
 .glyphicon {
     font-family: glyphicons-halflings-regular !important
 }

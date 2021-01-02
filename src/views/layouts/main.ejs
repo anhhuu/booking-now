@@ -8,12 +8,15 @@
     </title>
 </head>
 
-<body>
+<body data-spy="scroll" data-target="#navbar-example3" data-offset="20">
     <%- include('../partials/header.ejs') %>
 
     <%- body %>
 
     <%- include('../partials/footer.ejs') %>
+
+    <%- include('../partials/loginModal.ejs') %>
+
     <%- include('../partials/scripts.ejs') %>
 </body>
 

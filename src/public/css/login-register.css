@@ -222,8 +222,8 @@
 
 .login .btn-login,
 .registerBox .btn-register {
-    background-color: #00BBFF;
-    border-color: #00BBFF;
+    background-color:#dc3545;
+    border-color: #dc3545;
     border-width: 0;
     color: #FFFFFF;
     display: block;
@@ -235,7 +235,7 @@
 
 .login .btn-login:hover,
 .registerBox .btn-register:hover {
-    background-color: #00A4E4;
+    background-color: #b32f3c;
     color: #FFFFFF;
 }
 

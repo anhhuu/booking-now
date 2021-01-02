@@ -32,6 +32,9 @@ saveData = async() => {
                 }
             }
         }
+
+        services[i].flash_sale = i % 3 == 0 ? 0 : Math.floor(Math.random() * Math.floor(35));
+
         await serviceModel.save(services[i]);
         console.log('Running...' + Math.round((i + 1) / services.length * 100) + '%');
     }
