@@ -1,6 +1,5 @@
 jQuery(function() {
     var toggleAffix = function(affixElement, wrapper, scrollElement) {
-        console.log($('#nhan-xet').offset().top);
         if (scrollElement.scrollTop() < $('#nhan-xet').offset().top - 200) {
             if (scrollElement.scrollTop() >= wrapper.offset().top - 50) {
                 affixElement.addClass("affix");
