@@ -172,13 +172,13 @@
             </article>
         </div>
     </div>
-    <div class="col-3 " id="datcho">
-        <form method="post">
+    <div class="col-3">
+        <form method="post" action="/bookings/create" id="formBooking">
             <article class="bg-light" data-toggle="affix">
-                <input type="hidden" value="4384" id="txtArticleId">
-                <input type="hidden" value="2" id="txtLoaiDatChoDK">
-                <input type="hidden" value="0" name="sfQuanId">
-                <input type="hidden" value="2" name="sfDate" id="sfDate">
+                <% if(user) { %>
+                <input type="hidden" value="<%= user._id %>" name="user_id">
+                <% } %>
+                <input type="hidden" value="<%= service._id %>" name="service_id">
                 <h2>Đặt chỗ BookingNow kèm ưu đãi</h2>
                 <div class="form-group">
                     <p>Nên đặt trước khi đến từ 30 phút!</p>
@@ -190,103 +190,35 @@
                 <div class="form-group">
                     <div class="input-group">
                         <div class="input-group-btn">
-                            <input id="txtNgayDen" type="text" class="form-control" placeholder="Ngày" />
+                            <input id="txtNgayDen" name="date" type="text" class="form-control" placeholder="Ngày" />
                         </div>
                         <div class="input-group-btn">
-                            <select id="txtGioDen" class="form-control" name="sfTime">
+                            <select id="txtGioDen" name="time" class="form-control" name="sfTime">
+                                <%for (let i = 0; i < service.timeArr.length; i++) {%>
+                                <option value="<%= service.timeArr[i] %>"> <%= service.timeArr[i] %></option>
+                                <% } %>
 
-                                <option value="06:00">06:00</option>
-                                <option value="06:30">06:30</option>
-                                <option value="07:00">07:00</option>
-                                <option value="07:30">07:30</option>
-                                <option value="08:00">08:00</option>
-                                <option value="08:30">08:30</option>
-                                <option value="09:00">09:00</option>
-                                <option value="09:30">09:30</option>
-                                <option value="10:00">10:00</option>
-                                <option value="10:30">10:30</option>
-                                <option value="11:00">11:00</option>
-                                <option value="11:30">11:30</option>
-                                <option value="12:00">12:00</option>
-                                <option value="12:30">12:30</option>
-                                <option value="13:00">13:00</option>
-                                <option value="13:30">13:30</option>
-                                <option value="14:00">14:00</option>
-                                <option value="14:30">14:30</option>
-                                <option value="15:00">15:00</option>
-                                <option value="15:30">15:30</option>
-                                <option value="16:00">16:00</option>
-                                <option value="16:30">16:30</option>
-                                <option value="17:00">17:00</option>
-                                <option value="17:30">17:30</option>
-                                <option value="18:00">18:00</option>
-                                <option value="18:30">18:30</option>
-                                <option value="19:00">19:00</option>
-                                <option value="19:30">19:30</option>
-                                <option value="20:00">20:00</option>
-                                <option value="20:30">20:30</option>
-                                <option value="21:00">21:00</option>
-                                <option value="21:30">21:30</option>
-                                <option value="22:00">22:00</option>
-                                <option value="22:30">22:30</option>
-                                <option value="23:00">23:00</option>
-                                <option value="23:30">23:30</option>
                             </select>
                         </div>
                     </div>
                     <div class="input-group">
                         <div class="input-group-btn">
-                            <select id="txtSoNguoiLon" class="form-control" name="sfPeople">
-                                <option value="1">1 người lớn</option>
-                                <option value="2">2 người lớn</option>
-                                <option value="3">3 người lớn</option>
-                                <option value="4">4 người lớn</option>
-                                <option value="5">5 người lớn</option>
-                                <option value="6">6 người lớn</option>
-                                <option value="7">7 người lớn</option>
-                                <option value="8">8 người lớn</option>
-                                <option value="9">9 người lớn</option>
-                                <option value="10">10 người lớn</option>
-                                <option value="11">11 người lớn</option>
-                                <option value="12">12 người lớn</option>
-                                <option value="13">13 người lớn</option>
-                                <option value="14">14 người lớn</option>
-                                <option value="15">15 người lớn</option>
-                                <option value="16">16 người lớn</option>
-                                <option value="17">17 người lớn</option>
-                                <option value="18">18 người lớn</option>
-                                <option value="19">19 người lớn</option>
-                                <option value="20">20 người lớn</option>
+                            <select id="txtSoNguoiLon" name="amount_adult" class="form-control" name="sfPeople">
+                                <% for(let i = 1; i <= 25; i++) { %>
+                                <option value="<%= i %>"><%= i %> người lớn</option>
+                                <% } %>
                             </select>
                         </div>
                         <div class="input-group-btn">
-                            <select id="txtSoTreEm" class="form-control" name="sfChild">
-                                <option value="0">0 trẻ em</option>
-                                <option value="1">1 trẻ em</option>
-                                <option value="2">2 trẻ em</option>
-                                <option value="3">3 trẻ em</option>
-                                <option value="4">4 trẻ em</option>
-                                <option value="5">5 trẻ em</option>
-                                <option value="6">6 trẻ em</option>
-                                <option value="7">7 trẻ em</option>
-                                <option value="8">8 trẻ em</option>
-                                <option value="9">9 trẻ em</option>
-                                <option value="10">10 trẻ em</option>
-                                <option value="11">11 trẻ em</option>
-                                <option value="12">12 trẻ em</option>
-                                <option value="13">13 trẻ em</option>
-                                <option value="14">14 trẻ em</option>
-                                <option value="15">15 trẻ em</option>
-                                <option value="16">16 trẻ em</option>
-                                <option value="17">17 trẻ em</option>
-                                <option value="18">18 trẻ em</option>
-                                <option value="19">19 trẻ em</option>
-                                <option value="20">20 trẻ em</option>
+                            <select id="txtSoTreEm" name="amount_kid" class="form-control" name="sfChild">
+                                <% for(let i = 0; i <= 25; i++) { %>
+                                <option value="<%= i %>"><%= i %> trẻ em</option>
+                                <% } %>
                             </select>
                         </div>
                     </div>
-                    <textarea class="form-control" cols="70" id="txtGhichu" placeholder="Điền ghi chú tại đây..."
-                        rows="1"></textarea>
+                    <textarea class="form-control" cols="70" name="note" id="txtGhichu"
+                        placeholder="Điền ghi chú tại đây..." rows="1"></textarea>
                     <div id="txtErMessage"></div>
                     <button id="btn-booking" class="btn btn-default btn-block" type="button">Đặt chỗ ngay</button>
                     <div class="booking-call">Hoặc gọi tới: <span class="phone-number">1234 5678</span> <br />Để đặt chỗ
@@ -298,7 +230,6 @@
 </div>
 
 <!--Thông báo đặt chỗ-->
-
 <div class="modal fade" id="AlertModal" tabindex="-1" role="dialog" aria-labelledby="AlertModal">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -309,16 +240,19 @@
             </div>
             <div class="modal-body">
                 <div id="tvBody">
-
                     <p>* Đặt chỗ tới nhà hàng
-                        <font color="black"><b>Quán Họ Hứa – Văn Khê</b></font> - <b>Số 18 Liền kề 23, KĐT Văn Khê, Q.
-                            Hà Đông</b> đã được tiếp nhận thành công! </p>
-                    <p>* PasGo sẽ gọi điện tới số ĐT: <b>+841635584621</b> để Xác nhận trong vòng 10 phút tới. Vui lòng
+                        <font color="black"><b><%= service.name %></b></font> - <b><%= service.address %></b> đã được
+                        tiếp nhận thành công! </p>
+                    <p>* BookingNow sẽ gọi điện tới số ĐT: <b> <% if(user){ %> <%= user.phone_number %> <% } %> </b> để
+                        Xác nhận trong vòng 10
+                        phút tới. Vui
+                        lòng
                         giữ liên lạc!</p>
-                    <p>* Lưu ý: Quý Khách vui lòng chủ động gọi đến số: <b>19006005</b> để PasGo Xác nhận trong trường
-                        hợp PasGo cố gắng liên lạc không thành công! </p>
-                    <p> Đặt chỗ thành công chỉ khi có sự Xác nhận từ PasGo!</p>
-                    <p>Cảm ơn Quý Khách đã sử dụng PasGo!</p>
+                    <p>* Lưu ý: Quý Khách vui lòng chủ động gọi đến số: <b>12345678</b> để BookingNow Xác nhận trong
+                        trường
+                        hợp BookingNow cố gắng liên lạc không thành công! </p>
+                    <p> Đặt chỗ thành công chỉ khi có sự Xác nhận từ BookingNow!</p>
+                    <p>Cảm ơn Quý Khách đã sử dụng BookingNow!</p>
                 </div>
             </div>
             <div class="modal-footer">
@@ -334,7 +268,7 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <span class="modal-title" id="tvTitle"> Xác nhận đặt chỗ</span>
+                <span class="modal-title" id="tvTitle">Xác nhận đặt chỗ</span>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
                         aria-hidden="true">&times;</span></button>
             </div>
@@ -346,7 +280,7 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="input-group input-nummer-to">
-                                    <span id="tvSoNguoiDenDesktop" class="form-control">1 người lớn</span>
+                                    <span id="tvSoNguoiDenDesktop" class="form-control"></span>
                                     <span class="input-group-addon"><span class="glyphicon glyphicon-user"
                                             aria-hidden="true"></span></span>
                                 </div>
@@ -355,7 +289,7 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="input-group input-nummer-to">
-                                    <span id="tvSoNguoiDenTreEmDesktop" class="form-control">0 trẻ em</span>
+                                    <span id="tvSoNguoiDenTreEmDesktop" class="form-control"></span>
                                     <span class="input-group-addon"><span class="glyphicon glyphicon-user"
                                             aria-hidden="true"></span></span>
                                 </div>
@@ -375,7 +309,7 @@
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <div class="input-group date">
-                                        <span id="tvGioDenDesktop" class="form-control">21:30</span>
+                                        <span id="tvGioDenDesktop" class="form-control"></span>
                                         <span class="input-group-addon">
                                             <span class="glyphicon glyphicon-time"></span>
                                         </span>
@@ -385,15 +319,14 @@
                         </div>
                         <div class="row">
                             <div class="col-md-6">
-                                <button id="btn-cancel-desktop" class="btn btn-default btn-block"
-                                    type="submit">Hủy</button>
+                                <button id="btn-cancel-desktop" class="btn btn-default btn-block">Hủy</button>
                             </div>
                             <div class="col-md-6">
                                 <button id="btn-ok-desktop" class="btn btn-default btn-block" type="submit">Xác
                                     nhận</button>
                             </div>
                         </div>
-                        <h5>Nhân viên BookingNow sẽ liên hệ bạn để xác nhận đặt chỗ/h5>
+                        <h5 class="mt-4">BookingNow sẽ liên hệ bạn để xác nhận đặt chỗ</h5>
                     </div>
                 </div>
             </div>
@@ -402,3 +335,7 @@
     </div>
 </div>
 <!--Model Xác nhận thông tin đặt chỗ-->
+
+<span id='user' hidden>
+    <%= JSON.stringify(user); %>
+</span>

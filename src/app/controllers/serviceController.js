@@ -1,4 +1,4 @@
-const serviceModel = require('../models/services/serviceModel');
+const serviceService = require('../models/services/serviceService');
 
 module.exports.index = async(req, res, next) => {
 
@@ -6,7 +6,7 @@ module.exports.index = async(req, res, next) => {
     if (!page) {
         page = 1;
     }
-    let data = await serviceModel.getList(page, 20);
+    let data = await serviceService.getList(page, 20);
 
     res.render('services', {
         title: 'Nhà hàng ăn uống',
@@ -18,8 +18,7 @@ module.exports.index = async(req, res, next) => {
 }
 
 module.exports.showService = async(req, res, next) => {
-    console.log(req.params.url);
-    let service = await serviceModel.getByURL(req.params.url);
+    let service = await serviceService.getByURL(req.params.url);
     res.render('serviceShow', {
         title: service.name,
         servicesTitle: 'Nhà hàng trên Booking Now',

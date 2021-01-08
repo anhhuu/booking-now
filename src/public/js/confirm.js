@@ -1,20 +1,23 @@
 jQuery(function() {
     $('#btn-booking').click(function() {
-        // if (!user) {
-        $('#loginModal').modal("show");
-        // }
-        // else {
-        // $("#ConfirmModal").modal("show");
-        // }
+        const user = JSON.parse($('#user').text());
+        if (!user) {
+            $('#loginModal').modal("show");
+        } else {
+            console.log(user);
+            $("#ConfirmModal").modal("show");
+            $('#tvSoNguoiDenDesktop').text($('#txtSoNguoiLon').val() + ' người lớn');
+            $('#tvSoNguoiDenTreEmDesktop').text($('#txtSoTreEm').val() + ' trẻ em');
+            $('#tvNgayDenDesktop').text($('#txtNgayDen').val());
+            $('#tvGioDenDesktop').text($('#txtGioDen').val());
+        }
     })
     $("#btn-cancel-desktop").click(function() {
         $("#ConfirmModal").modal("hide");
     });
     $("#btn-ok-desktop").click(function() {
         $("#ConfirmModal").modal("hide");
-        // if(tiepnhanthanhcong){        
-        // $('#AlertModal').modal("show");
-        // }
+        $('#AlertModal').modal("show");
     });
 });
 

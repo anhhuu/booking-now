@@ -34,6 +34,7 @@
                 </svg>
                 <span class="caret"></span>
             </button>
+            <% if(!user) { %>
             <div class="dropdown-menu bg-transparent dropdown-menu-right animate" aria-labelledby="dropdownMenuButton">
                 <a class="dropdown-item btn big-register" data-toggle="modal" href="javascript:void(0)"
                     onclick="openLoginModal();">Log in</a>
@@ -42,6 +43,15 @@
                 <a class="dropdown-item btn big-register" href="#"> Host</a>
                 <a class="dropdown-item btn big-register" href="#"> Contact</a>
             </div>
+            <% } else { %>
+            <div class="dropdown-menu bg-transparent dropdown-menu-right animate" aria-labelledby="dropdownMenuButton">
+                <a class="dropdown-item btn big-register" data-toggle="modal" href="/users/profile">Thông
+                    tin tài khoản</a>
+                <a class="dropdown-item btn big-register" data-toggle="modal" href="javascript:void(0)" onclick="">Lịch
+                    sử đặt chỗ</a>
+                <a class="dropdown-item btn big-register" href="/logout">Đăng xuất</a>
+            </div>
+            <% } %>
         </div>
     </nav>
 </div>

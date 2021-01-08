@@ -1,11 +1,11 @@
-const serviceModel = require('../models/services/serviceModel');
+const serviceService = require('../models/services/serviceService');
 
 module.exports.index = async(req, res, next) => {
 
-    const sliderServices = await serviceModel.getList(Math.floor(Math.random() * 10) + 1, 3);
-    const flashsaleServices = await serviceModel.getListFlashsale(1, 6);
-    const newerServices = await serviceModel.getList(Math.floor(Math.random() * 3) + 1, 8);
-    const recommendServices = await serviceModel.getList(Math.floor(Math.random() * 8) + 4, 8);
+    const sliderServices = await serviceService.getList(Math.floor(Math.random() * 10) + 1, 3);
+    const flashsaleServices = await serviceService.getListFlashsale(1, 6);
+    const newerServices = await serviceService.getList(Math.floor(Math.random() * 3) + 1, 8);
+    const recommendServices = await serviceService.getList(Math.floor(Math.random() * 8) + 4, 8);
 
     //console.log(sliderServices);
     res.render('index', {
@@ -14,9 +14,6 @@ module.exports.index = async(req, res, next) => {
         flashsaleServices: flashsaleServices,
         newerServices: newerServices.services,
         recommendServices: recommendServices.services,
-    }, (err, html) => {
-        console.log(res.locals);
-        res.send(html);
     });
 }
 
@@ -32,7 +29,7 @@ module.exports.search = async(req, res, next) => {
     if (!page || page < 0) {
         page = 1;
     }
-    let data = await serviceModel.searchByName(page, 20, q);
+    let data = await serviceService.searchByName(page, 20, q);
 
     res.render('services', {
         title: 'Nhà hàng ăn uống',

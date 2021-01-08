@@ -1,14 +1,14 @@
 let services = require('./rawData/PasgoHCM.json');
 
-const typeModel = require('../app/models/services/typeModel');
-const userModel = require('../app/models/services/userModel');
-const serviceModel = require('../app/models/services/serviceModel');
+const typeService = require('../app/models/services/typeService');
+const userService = require('../app/models/services/userService');
+const serviceService = require('../app/models/services/serviceService');
 
 const db = require('../config/db');
 
 saveData = async() => {
-    const type = await typeModel.getByName('Nhà hàng/Quán ăn');
-    const serviceProvider = await userModel.getByUsername('provider_test1');
+    const type = await typeService.getByName('Nhà hàng/Quán ăn');
+    const serviceProvider = await userService.getByUsername('provider_test1');
     for (let i = 0; i < services.length; i++) {
 
         //address object
@@ -35,7 +35,7 @@ saveData = async() => {
 
         services[i].flash_sale = i % 3 == 0 ? 0 : Math.floor(Math.random() * Math.floor(35));
 
-        await serviceModel.save(services[i]);
+        await serviceService.save(services[i]);
         console.log('Running...' + Math.round((i + 1) / services.length * 100) + '%');
     }
     console.log('COMPLETED!!!');

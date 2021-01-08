@@ -35,22 +35,6 @@ function openRegisterModal() {
     setTimeout(function() {
         $('#loginModal').modal('show');
     }, 230);
-
-}
-
-function loginAjax() {
-    /*   Remove this comments when moving to server
-    $.post( "/login", function( data ) {
-            if(data == 1){
-                window.location.replace("/home");            
-            } else {
-                 shakeModal(); 
-            }
-        });
-    */
-
-    /*   Simulate error message from the server   */
-    shakeModal();
 }
 
 function shakeModal() {
@@ -61,3 +45,31 @@ function shakeModal() {
         $('#loginModal .modal-dialog').removeClass('shake');
     }, 1000);
 }
+
+function onSubmitLoginForm() {
+    $('form#loginForm').submit(e => {
+        e.preventDefault();
+        let query = $('form#loginForm').serialize();
+        $.ajax({
+            url: '/login',
+            type: 'post',
+            data: query,
+            crossDomain: true,
+            xhrFields: {
+                withCredentials: true
+            },
+            success: result => {
+                if (result.success == true) {
+                    window.location.replace("/");
+                    console.log(result);
+                } else {
+                    shakeModal();
+                }
+            }
+        })
+    })
+}
+
+$(document).ready(() => {
+    onSubmitLoginForm();
+});

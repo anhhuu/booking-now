@@ -1,10 +1,12 @@
 const siteRouter = require('./site');
 const serviceRouter = require('./services');
-const userRouter = require('./user');
+const usersRouter = require('./users');
+const bookingsRouter = require('./bookings');
 module.exports.route = (app) => {
     app.use('/', siteRouter);
-    app.use('/user', isLoggedIn, userRouter);
+    app.use('/users', isLoggedIn, usersRouter);
     app.use('/services', serviceRouter);
+    app.use('/bookings', bookingsRouter);
 }
 
 function isLoggedIn(req, res, next) {

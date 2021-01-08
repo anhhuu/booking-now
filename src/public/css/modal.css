@@ -70,7 +70,8 @@
 
 .modal-body {
     position: relative;
-    padding: 15px
+    padding: 15px;
+    font-size: 1.3rem;    
 }
 
 .modal-footer {
