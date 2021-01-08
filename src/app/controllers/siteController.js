@@ -2,10 +2,10 @@ const serviceModel = require('../models/services/serviceModel');
 
 module.exports.index = async(req, res, next) => {
 
-    const sliderServices = await serviceModel.getList(4, 3);
+    const sliderServices = await serviceModel.getList(Math.floor(Math.random() * 10) + 1, 3);
     const flashsaleServices = await serviceModel.getListFlashsale(1, 6);
-    const newerServices = await serviceModel.getList(2, 8);
-    const recommendServices = await serviceModel.getList(3, 8);
+    const newerServices = await serviceModel.getList(Math.floor(Math.random() * 3) + 1, 8);
+    const recommendServices = await serviceModel.getList(Math.floor(Math.random() * 8) + 4, 8);
 
     //console.log(sliderServices);
     res.render('index', {
