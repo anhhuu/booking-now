@@ -45,17 +45,11 @@ app.use(session({
         maxAge: 7 * 24 * 60 * 60 * 1000, //7 ngay
     }
 }))
-app.use(flash());
-
-
 app.use(passport.initialize());
 app.use(passport.session());
+app.use(flash());
+require('./config/passport')(passport);
 
-
-const User = require('./app/models/mongooseModels/User');
-passport.use(User.createStrategy());
-passport.serializeUser(User.serializeUser());
-passport.deserializeUser(User.deserializeUser());
 
 
 app.use(function(req, res, next) {
