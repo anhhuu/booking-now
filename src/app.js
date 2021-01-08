@@ -4,18 +4,19 @@ const path = require('path');
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
+
 const app = express();
+
 const debugHttp = require('debug')('booking-now:http')
 const passport = require('passport');
-const LocalStrategy = require('passport-local').Strategy;
 const session = require('express-session');
-const MongoStore = require('connect-mongo')(session);
 const flash = require('connect-flash');
 const expressLayouts = require('express-ejs-layouts')
-const db = require('./config/db');
+const MongoStore = require('connect-mongo')(session);
 
 const route = require('./routes').route;
 
+const db = require('./config/db');
 db.connect();
 
 // view engine setup
@@ -23,6 +24,7 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 app.use(expressLayouts);
 app.set('layout', 'layouts/main');
+app.set("layout extractScripts", true);
 
 app.use(logger('dev', { stream: { write: msg => debugHttp(msg.trimEnd()) } }));
 app.use(bodyParser.json());
@@ -79,7 +81,7 @@ app.use(function(err, req, res, next) {
 
     // render the error page
     res.status(err.status || 500);
-    res.render('error');
+    res.render('error', { layout: 'layouts/error' });
 });
 
 module.exports = app;

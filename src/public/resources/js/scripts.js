@@ -1,8 +1,6 @@
 jQuery(function() {
     new WOW().init();
-    /*
-        Carousel
-    */
+
     $('#carousel-partner').on('slide.bs.carousel', function(e) {
         var $e = $(e.relatedTarget);
         var idx = $e.index();
@@ -14,11 +12,21 @@ jQuery(function() {
             for (var i = 0; i < it; i++) {
                 // append slides to end
                 if (e.direction == "left") {
-                    $('#doitac').eq(i).appendTo('#carousel-doitac');
+                    $('#bkpartner').eq(i).appendTo('#carousel-bkpartner');
                 } else {
-                    $('#doitac').eq(0).appendTo('#carousel-doitac');
+                    $('#bkpartner').eq(0).appendTo('#carousel-bkpartner');
                 }
             }
         }
     });
+});
+
+$(document).ready(function() {
+    $('.searchbar > *')
+        .focus(function() {
+            $('.searchbar').addClass('searchbar_focus');
+        })
+        .blur(function() {
+            $('.searchbar').removeClass('searchbar_focus');
+        });
 });

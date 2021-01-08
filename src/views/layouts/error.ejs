@@ -8,14 +8,13 @@
     </title>
 </head>
 
-<body data-spy="scroll" data-target="#navbar-scroll" data-offset="20">
+<body>
     <%- include('../partials/header.ejs') %>
-
-    <%- body %>
+    <div class="container mt-4">
+        <%- body %>
+    </div>
 
     <%- include('../partials/footer.ejs') %>
-
-    <%- include('../partials/loginModal.ejs') %>
 
     <%- include('../partials/scripts.ejs') %>
     <%- script %>

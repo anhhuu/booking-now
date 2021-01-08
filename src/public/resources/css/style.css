@@ -337,7 +337,7 @@ input {
 
 @media (min-width: 768px) and (max-width: 991px) {
     /* Show 4th slide on md  if col-md-4*/
-    .carousel-inner#carousel-doitac .active.col-md-4.carousel-item#doitac+.carousel-item#doitac+.carousel-item#doitac+.carousel-item#doitac {
+    .carousel-inner#carousel-bkpartner .active.col-md-4.carousel-item#bkpartner+.carousel-item#bkpartner+.carousel-item#bkpartner+.carousel-item#bkpartner {
         position: absolute;
         top: 0;
         right: -33.3333%;
@@ -356,7 +356,7 @@ input {
         display: block !important;
     }
     /* Show 3rd slide on sm  if col-sm-6*/
-    .carousel-inner#carousel-doitac .active.col-sm-6.carousel-item#doitac+.carousel-item#doitac+.carousel-item#doitac {
+    .carousel-inner#carousel-bkpartner .active.col-sm-6.carousel-item#bkpartner+.carousel-item#bkpartner+.carousel-item#bkpartner {
         position: absolute;
         top: 0;
         right: -50%;
@@ -377,31 +377,31 @@ input {
     .search_input {
         width: 25rem;
     }
-    .carousel-item#doitac {
+    .carousel-item#bkpartner {
         margin-right: 0;
     }
     /* show 2 items */
-    .carousel-inner#carousel-doitac .active#doitac+.carousel-item#doitac {
+    .carousel-inner#carousel-bkpartner .active#bkpartner+.carousel-item#bkpartner {
         display: block;
     }
-    .carousel-inner#carousel-doitac .carousel-item.active:not(.carousel-item-right):not(.carousel-item-left),
-    .carousel-inner#carousel-doitac .carousel-item.active:not(.carousel-item-right):not(.carousel-item-left)+.carousel-item#doitac {
+    .carousel-inner#carousel-bkpartner .carousel-item.active:not(.carousel-item-right):not(.carousel-item-left),
+    .carousel-inner#carousel-bkpartner .carousel-item.active:not(.carousel-item-right):not(.carousel-item-left)+.carousel-item#bkpartner {
         transition: none;
     }
-    .carousel-inner#carousel-doitac .carousel-item-next {
+    .carousel-inner#carousel-bkpartner .carousel-item-next {
         position: relative;
         transform: translate3d(0, 0, 0);
     }
     /* left or forward direction */
-    .active#doitac.carousel-item-left+.carousel-item-next.carousel-item-left,
-    .carousel-item-next.carousel-item-left+.carousel-item#doitac,
-    .carousel-item-next.carousel-item-left+.carousel-item#doitac+.carousel-item#doitac {
+    .active#bkpartner.carousel-item-left+.carousel-item-next.carousel-item-left,
+    .carousel-item-next.carousel-item-left+.carousel-item#bkpartner,
+    .carousel-item-next.carousel-item-left+.carousel-item#bkpartner+.carousel-item#bkpartner {
         position: relative;
         transform: translate3d(-100%, 0, 0);
         visibility: visible;
     }
     /* farthest right hidden item must be abso position for animations */
-    .carousel-inner#carousel-doitac .carousel-item-prev.carousel-item-right {
+    .carousel-inner#carousel-bkpartner .carousel-item-prev.carousel-item-right {
         position: absolute;
         top: 0;
         left: 0;
@@ -410,9 +410,9 @@ input {
         visibility: visible;
     }
     /* right or prev direction */
-    .active#doitac.carousel-item-right+.carousel-item-prev.carousel-item-right,
-    .carousel-item-prev.carousel-item-right+.carousel-item#doitac,
-    .carousel-item-prev.carousel-item-right+.carousel-item#doitac+.carousel-item#doitac {
+    .active#bkpartner.carousel-item-right+.carousel-item-prev.carousel-item-right,
+    .carousel-item-prev.carousel-item-right+.carousel-item#bkpartner,
+    .carousel-item-prev.carousel-item-right+.carousel-item#bkpartner+.carousel-item#bkpartner {
         position: relative;
         transform: translate3d(100%, 0, 0);
         visibility: visible;
@@ -432,24 +432,24 @@ input {
         width: 45rem;
     }
     /* show 3rd of 3 item slide */
-    .carousel-inner#carousel-doitac .carousel-item.active#doitac+.carousel-item#doitac+.carousel-item#doitac {
+    .carousel-inner#carousel-bkpartner .carousel-item.active#bkpartner+.carousel-item#bkpartner+.carousel-item#bkpartner {
         display: block;
     }
-    .carousel-inner#carousel-doitac .carousel-item.active#doitac:not(.carousel-item-right):not(.carousel-item-left)+.carousel-item#doitac+.carousel-item#doitac {
+    .carousel-inner#carousel-bkpartner .carousel-item.active#bkpartner:not(.carousel-item-right):not(.carousel-item-left)+.carousel-item#bkpartner+.carousel-item#bkpartner {
         transition: none;
     }
-    .carousel-inner#carousel-doitac .carousel-item-next {
+    .carousel-inner#carousel-bkpartner .carousel-item-next {
         position: relative;
         transform: translate3d(0, 0, 0);
     }
     /* left or forward direction */
-    .carousel-item-next.carousel-item-left+.carousel-item#doitac+.carousel-item#doitac+.carousel-item#doitac {
+    .carousel-item-next.carousel-item-left+.carousel-item#bkpartner+.carousel-item#bkpartner+.carousel-item#bkpartner {
         position: relative;
         transform: translate3d(-100%, 0, 0);
         visibility: visible;
     }
     /* right or prev direction */
-    .carousel-item-prev.carousel-item-right+.carousel-item#doitac+.carousel-item#doitac+.carousel-item#doitac {
+    .carousel-item-prev.carousel-item-right+.carousel-item#bkpartner+.carousel-item#bkpartner+.carousel-item#bkpartner {
         position: relative;
         transform: translate3d(100%, 0, 0);
         visibility: visible;
@@ -469,14 +469,14 @@ input {
         width: 45rem;
     }
     /* show 4th item */
-    .carousel-inner#carousel-doitac .active#doitac+.carousel-item#doitac+.carousel-item#doitac+.carousel-item#doitac {
+    .carousel-inner#carousel-bkpartner .active#bkpartner+.carousel-item#bkpartner+.carousel-item#bkpartner+.carousel-item#bkpartner {
         display: block;
     }
-    .carousel-inner#carousel-doitac .carousel-item.active#doitac:not(.carousel-item-right):not(.carousel-item-left)+.carousel-item#doitac+.carousel-item#doitac+.carousel-item#doitac {
+    .carousel-inner#carousel-bkpartner .carousel-item.active#bkpartner:not(.carousel-item-right):not(.carousel-item-left)+.carousel-item#bkpartner+.carousel-item#bkpartner+.carousel-item#bkpartner {
         transition: none;
     }
     /* Show 5th slide on lg if col-lg-3 */
-    .carousel-inner#carousel-doitac .active.col-lg-3.carousel-item#doitac+.carousel-item#doitac+.carousel-item#doitac+.carousel-item#doitac+.carousel-item#doitac {
+    .carousel-inner#carousel-bkpartner .active.col-lg-3.carousel-item#bkpartner+.carousel-item#bkpartner+.carousel-item#bkpartner+.carousel-item#bkpartner+.carousel-item#bkpartner {
         position: absolute;
         top: 0;
         right: -25%;
@@ -486,13 +486,13 @@ input {
         visibility: visible;
     }
     /* left or forward direction */
-    .carousel-item-next.carousel-item-left+.carousel-item#doitac+.carousel-item#doitac+.carousel-item#doitac+.carousel-item#doitac {
+    .carousel-item-next.carousel-item-left+.carousel-item#bkpartner+.carousel-item#bkpartner+.carousel-item#bkpartner+.carousel-item#bkpartner {
         position: relative;
         transform: translate3d(-100%, 0, 0);
         visibility: visible;
     }
     /* right or prev direction //t - previous slide direction last item animation fix */
-    .carousel-item-prev.carousel-item-right+.carousel-item#doitac+.carousel-item#doitac+.carousel-item#doitac+.carousel-item#doitac {
+    .carousel-item-prev.carousel-item-right+.carousel-item#bkpartner+.carousel-item#bkpartner+.carousel-item#bkpartner+.carousel-item#bkpartner {
         position: relative;
         transform: translate3d(100%, 0, 0);
         visibility: visible;
@@ -1388,7 +1388,7 @@ article .text-header span {
     font-style: normal
 }
 
-.wap-top-detail .left .bknow-giatrungbinh {
+.wap-top-detail .left .bknow-avg-price {
     color: #d02028
 }
 

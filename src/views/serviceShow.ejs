@@ -34,20 +34,13 @@
             <h1>
                 <span class="bknow-star" itemprop="aggregateRating" itemscope
                     itemtype="http://schema.org/AggregateRating">
-                    <meta itemprop="worstRating" content="1" />
-                    <meta itemprop="bestRating" content="5" />
                     <i class="glyphicon glyphicon-star" aria-hidden="true"></i>
-                    <meta itemprop="ratingValue" content="4" />
-                    <meta itemprop="reviewCount" content="118" />
                 </span>
                 <span class="bknow-title" itemprop="name"><%= service.name %></span>
-                <meta itemprop="image"
-                    content="https://pasgo.vn/Upload/anh-chi-tiet/nha-hang-ngoi-do-phan-van-tri-1-normal-1921786950071.jpg" />
             </h1>
             <p class="address-partner" itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
-                <img src="/img/icon-maps-detail.png" alt="maps" />
+                <img src="/resources/img/icon-maps-detail.png" alt="maps" />
                 <span itemprop="streetAddress"><%= service.address %></span>
-                <meta itemprop="addressLocality" content="TP.HCM" />
             </p>
             <p class="hours-pickup" itemprop="openingHours"><%= service.operating %></span> </p>
 
@@ -55,7 +48,7 @@
 
                 <div class="col-md-12 center">
                     <span class="text-left">Khoảng giá: </span>
-                    <span class="bknow-giatrungbinh" itemprop="priceRange"><%= service.price_range %></span>
+                    <span class="bknow-avg-price" itemprop="priceRange"><%= service.price_range %></span>
                 </div>
             </div>
         </div>
@@ -63,16 +56,16 @@
 </div>
 <div class="row">
     <div class="col-1 sidebar">
-        <nav class="bg-light nav-pills flex-column " data-toggle="affix" id="navbar-example3">
-            <a class="nav-link active " href="#gioi-thieu">GIỚI THIỆU</a>
-            <a class="nav-link " href="#thuc-don">THỰC ĐƠN</a>
-            <a class="nav-link " href="#dia-chi">ĐỊA CHỈ</a>
-            <a class="nav-link " href="#nhan-xet">NHẬN XÉT</a>
+        <nav class="bg-light nav-pills flex-column " data-toggle="affix" id="navbar-scroll">
+            <a class="nav-link active " href="#introductionScrollNav">GIỚI THIỆU</a>
+            <a class="nav-link " href="#menuScrollNav">THỰC ĐƠN</a>
+            <a class="nav-link " href="#addressScrollNav">ĐỊA CHỈ</a>
+            <a class="nav-link " href="#commentScrollNav">NHẬN XÉT</a>
         </nav>
     </div>
     <div class="col-8">
         <div class="body-detail scrollspy-example-2">
-            <article id="gioi-thieu">
+            <article id="introductionScrollNav">
                 <div class="content">
                     <h2 class="text-header"><span>Giới thiệu <%= service.name %></span></h2>
                     <div class="row-app">
@@ -126,7 +119,7 @@
 
 
             </article>
-            <article id="thuc-don">
+            <article id="menuScrollNav">
                 <div class="content">
                     <h2 class="text-header"><span>Thực đơn</span></h2>
                     <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
@@ -150,7 +143,7 @@
                     </div>
                 </div>
             </article>
-            <article id="dia-chi">
+            <article id="addressScrollNav">
                 <div class="content">
                     <h2 class="text-header"><span>Bản đồ & Địa điểm</span></h2>
                     <h4><%= service.address %> </h4>
@@ -159,7 +152,7 @@
                     </a>
                 </div>
             </article>
-            <article id="nhan-xet">
+            <article id="commentScrollNav">
                 <div class="content">
                     <h2 class="text-header"><span>Bình luận</span></h2>
                     <form>
@@ -172,7 +165,7 @@
             </article>
         </div>
     </div>
-    <div class="col-3">
+    <div class="col-3" id="datcho">
         <form method="post" action="/bookings/create" id="formBooking">
             <article class="bg-light" data-toggle="affix">
                 <% if(user) { %>
@@ -339,3 +332,7 @@
 <span id='user' hidden>
     <%= JSON.stringify(user); %>
 </span>
+
+<script src="/resources/js/stickySidenav.js"></script>
+<script src="/resources/js/confirm.js"></script>
+<script src="/resources/js/calendar.js"></script>

@@ -35,22 +35,22 @@ body {
 
 @font-face {
     font-family: 'glyphicons-halflings-regular';
-    src: url("../font/glyphicons-halflings-regular.woff") format("woff")
+    src: url("../fonts/glyphicons/glyphicons-halflings-regular.woff") format("woff")
 }
 
 @font-face {
     font-family: 'Roboto-Bold';
-    src: url(../fontroboto/Roboto-Bold.woff) format("woff")
+    src: url(../fonts/fontroboto/Roboto-Bold.woff) format("woff")
 }
 
 @font-face {
     font-family: 'Roboto-Medium';
-    src: url("../fontroboto/Roboto-Medium.woff") format("woff")
+    src: url("../fonts/fontroboto/Roboto-Medium.woff") format("woff")
 }
 
 @font-face {
     font-family: 'roboto-regular';
-    src: url("../fontroboto/roboto-regular.woff") format("woff")
+    src: url("../fonts/fontroboto/roboto-regular.woff") format("woff")
 }
 
 .glyphicon {
