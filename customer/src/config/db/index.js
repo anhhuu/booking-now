@@ -4,8 +4,8 @@ const debug = require('debug')('booking-now:db')
 async function connect() {
     try {
         await mongoose.connect(
-            //process.env.DB_URI,
-            process.env.DB_URI_LOCAL,
+            process.env.DB_URI,
+            // process.env.DB_URI_LOCAL,
             //'mongodb+srv://anhhuu:bLQlvoct2i2pKuet@booking-now-cluster.614b6.mongodb.net/booking-now-dev1_0?retryWrites=true&w=majority', 
             {
                 useNewUrlParser: true,
