@@ -165,6 +165,7 @@
             </article>
         </div>
     </div>
+
     <div class="col-3" id="datcho">
         <form method="post" action="/bookings/create" id="formBooking">
             <article class="bg-light" data-toggle="affix">
@@ -183,7 +184,8 @@
                 <div class="form-group">
                     <div class="input-group">
                         <div class="input-group-btn">
-                            <input id="txtNgayDen" name="date" type="text" class="form-control" placeholder="Ngày" />
+                            <input id="txtNgayDen" name="schedule" type="text" class="form-control"
+                                placeholder="Ngày" />
                         </div>
                         <div class="input-group-btn">
                             <select id="txtGioDen" name="time" class="form-control" name="sfTime">
@@ -213,7 +215,10 @@
                     <textarea class="form-control" cols="70" name="note" id="txtGhichu"
                         placeholder="Điền ghi chú tại đây..." rows="1"></textarea>
                     <div id="txtErMessage"></div>
-                    <button id="btn-booking" class="btn btn-default btn-block" type="button">Đặt chỗ ngay</button>
+                    <button id="btn-booking" class="btn btn-default btn-block" type="button" <% if(user) { %>
+                        <% if(user.role.name === 'provider' || user.role.name === 'admin') { %> <%= 'disabled' %>
+                        <% }} %>>Đặt chỗ
+                        ngay</button>
                     <div class="booking-call">Hoặc gọi tới: <span class="phone-number">1234 5678</span> <br />Để đặt chỗ
                         và được tư vấn.</div>
                 </div>

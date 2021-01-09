@@ -11,7 +11,10 @@ module.exports = function(passport) {
 
     passport.deserializeUser(function(id, done) {
         User.findById(id, function(err, user) {
-            done(err, user);
+            Role.findById(user.role).exec(function(err, role) {
+                user.role = role;
+                done(err, user);
+            })
         });
     });
 

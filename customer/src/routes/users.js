@@ -5,5 +5,6 @@ const userController = require('../app/controllers/userController')
 router.get('/profile', userController.index);
 router.post('/profile', userController.update);
 router.get('/password', userController.getPasswordManagerPage);
+router.post('/password', userController.updatePassword);
 
 module.exports = router;

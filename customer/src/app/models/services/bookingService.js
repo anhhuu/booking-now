@@ -24,6 +24,7 @@ module.exports.save = async(bookingObj) => {
             amount_adult: bookingObj.amount_adult,
             amount_kid: bookingObj.amount_kid,
             status: bookingObj.status,
+            time: bookingObj.time,
             date_modified: bookingObj.date_modified,
             schedule: bookingObj.schedule,
             user_id: bookingObj.user_id,
@@ -31,6 +32,17 @@ module.exports.save = async(bookingObj) => {
         });
         await booking.save();
         return booking;
+    } catch (error) {
+        throw error;
+    }
+}
+
+module.exports.cancel = async(id) => {
+    try {
+        const booking = Booking.findById(id);
+        await booking.updateOne({
+            status: 'cancel'
+        })
     } catch (error) {
         throw error;
     }

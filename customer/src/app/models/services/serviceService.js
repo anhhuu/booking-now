@@ -145,6 +145,15 @@ module.exports.getByURL = async(url) => {
     }
 }
 
+module.exports.getByID = async(id) => {
+    try {
+        const service = await Service.findById(id).lean();
+        return service;
+    } catch (error) {
+
+    }
+}
+
 module.exports.save = async(serviceObj) => {
     try {
         let service = new Service({

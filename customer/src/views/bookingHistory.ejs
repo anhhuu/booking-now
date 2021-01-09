@@ -20,14 +20,16 @@
                         </ul>
                     </div>
                 </div>
-                <form action="/users/profile" class="form-group" method="post">
+                <div action="/users/profile" class="form-group" method="post">
                     <div class="row">
                         <div class="col-md-4">
                             <ul>
                                 <li>
                                     <div class="row">
                                         <div class="col-md-4 category-profile">
-                                            <img src="https://pasgo.vn/Assets/Images/no_avatar.png" id="img-avatar-profile" class="img-circle img-responsive" alt="Pham Huu" />
+                                            <img src="https://pasgo.vn/Assets/Images/no_avatar.png"
+                                                id="img-avatar-profile" class="img-circle img-responsive"
+                                                alt="Pham Huu" />
                                             <span class="file-input  btn-file">
                                                 <label>
                                                     <input type="file" name="file" id="file"
@@ -62,26 +64,40 @@
                         </div>
                         <div class="col-md-8">
                             <h1>LỊCH SỬ ĐẶT CHỖ</h1>
-                            <div class="card d-flex flex-row">
-                                <img src="https://pasgo.vn/Assets/Images/no_avatar.png" height="128px" width="128px">
+                            <% for(let i = 0; i < bookings.length; i++) { %>
+                            <div class="card d-flex flex-row" style="margin-top: 0.4rem;">
+                                <img style="object-fit: cover!important;" src="<%= bookings[i].service.imgs_url[0] %>"
+                                    height="128px" width="128px">
                                 <div class="card" style="width:100%">
-                                    <h5 class="card-header d-flex justify-content-center">TÊN </h5>
+                                    <h5 class="card-header d-flex justify-content-center">
+                                        <%= bookings[i].service.name %>
+                                    </h5>
                                     <div class="card-body">
-                                        <h5 class="card-title">Ngày giờ </h5>
-                                        <p class="card-text">Địa chỉ: ....................</p>
+                                        <h5 class="card-title">Thời gian: <%= bookings[i].schedule %> -
+                                            <%= bookings[i].time %> </h5>
+                                        <h5 class="card-title">Trạng thái:
+                                            <%= bookings[i].status === 'waiting' ? 'Đang chờ' : bookings[i].status === 'cancel' ? 'Đã huỷ' : 'Đã xác nhận' %>
+                                        </h5>
+                                        <p class="card-text" style="font-size: 11px;">Địa chỉ:
+                                            <%= bookings[i].service.address %></p>
                                     </div>
                                 </div>
-                                <div class="d-flex align-items-center  justify-content-lg-end">
-                                    <button type="button" class=" btn btn-register " style="margin-bottom:0!important; margin-right:10px!important;">Đánh giá</button>
-                                    <button type="button" class="btn btn-register " style="margin-bottom:0!important;margin-right:10px!important;"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
-                                        <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"/>
-                                        <path fill-rule="evenodd" d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4L4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"/>
-                                      </svg></button>
+                                <div class="d-flex align-items-center justify-content-lg-end">
+                                    <a type="button" class=" btn btn-register"
+                                        href="/services/<%= bookings[i].service.url %>" target="_blank"
+                                        style="margin-bottom:0!important; margin-right:10px!important;">Đánh
+                                        giá</a>
+                                    <form action="/bookings/cancel" method="POST" id="cancel<%= i+1 %>">
+                                        <input type="text" name="booking_id" value="<%= bookings[i]._id %>" hidden>
+                                        <button type="submit" form="cancel<%= i+1 %>" class="btn btn-register"
+                                            <% if(bookings[i].status !== 'waiting') { %> <%= 'disabled' %> <% } %>
+                                            style="margin-bottom:0!important;margin-right:10px!important;">Huỷ</button>
+                                    </form>
                                 </div>
                             </div>
+                            <% } %>
                         </div>
-                </form>
-
+                    </div>
                 </div>
             </div>
         </div>

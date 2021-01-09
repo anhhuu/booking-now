@@ -16,8 +16,18 @@ jQuery(function() {
         $("#ConfirmModal").modal("hide");
     });
     $("#btn-ok-desktop").click(function() {
-        $("#ConfirmModal").modal("hide");
-        $('#AlertModal').modal("show");
+        let body = $('form#formBooking').serialize();
+        $.ajax({
+            url: '/bookings/create',
+            type: 'post',
+            data: body,
+            success: result => {
+                if (result.message === 'success') {
+                    $("#ConfirmModal").modal("hide");
+                    $('#AlertModal').modal("show");
+                }
+            }
+        });
     });
 });
 

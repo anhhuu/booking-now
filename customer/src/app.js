@@ -53,6 +53,7 @@ app.use(flash());
 require('./config/passport')(passport);
 
 app.use(function(req, res, next) {
+    console.log(req.user);
     res.locals.user = req.user || null;
     res.locals.session = req.session;
     next();
