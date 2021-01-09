@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include('../partials/head.ejs') %>
+    <title>
+        <%= (typeof(title) != "undefined" ? title : "Booking now") %>
+    </title>
+</head>
+
+<body data-spy="scroll" data-target="#navbar-scroll" data-offset="20">
+    <%- include('../partials/header.ejs') %>
+
+    <%- body %>
+
+    <%- include('../partials/footer.ejs') %>
+
+    <%- include('../partials/loginModal.ejs') %>
+
+    <%- include('../partials/scripts.ejs') %>
+    <%- script %>
+</body>
+
+</html>

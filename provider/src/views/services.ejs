@@ -1,0 +1,95 @@
+<div class="mt-4 container" style="padding-top: 5rem!important;">
+    <div class="menu-product">
+        <h4>Trang chủ &#62; Ăn uống</h4>
+        <section class="wapper">
+            <div class="wapcontent">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h1 style="border-bottom: 1px solid rgb(230, 230, 230); padding-bottom: 2rem;">Ăn uống &#62;
+                            <%= servicesTitle %>
+                        </h1>
+                    </div>
+                </div>
+                <div class="mt-4 row bknow-collection" style="padding-top: 2rem!important;">
+                    <!-- item -->
+                    <% for(let i = 0; i < services.length; i++) { %>
+                    <div class="col-md-3">
+                        <div class="wapitem">
+                            <a class="waptop" href="/services/<%= services[i].url %>" target="_blank">
+                                <img src="<%= services[i].imgs_url[0] %>" class="img-responsive"
+                                    alt="<%= services[i].name %>" />
+                            </a>
+                            <div class="wapfooter">
+                                <a href="/services/<%= services[i].url %>" target="_blank"><%= services[i].name %></a>
+                                <div class="row">
+                                    <div class="col-md-12  wapstar">
+                                        <div class="danhgia-ct shadow-outside" property="aggregateRating"
+                                            typeof="AggregateRating">
+                                            <input class="rating form-control hide" value="<%= services[i].rating %>"
+                                                data-display-only="true" />
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <p class="text-address notranslate"><%= services[i].address %></p>
+                            </div>
+                            <div class="wapsale">
+                                <% if(services[i].flashsale) { %>
+                                <strong>Giảm <%= services[i].flashsale %>%</strong>
+                                <% } else {%>
+                                <strong>Đặt bàn được giữ chỗ</strong>
+                                <% } %>
+                            </div>
+                            <div class="wapbooking">
+                                <a class="btn-booking " href="/services/<%= services[i].url %>" target="_blank">Đặt chỗ
+                                    ngay</a>
+                            </div>
+                        </div>
+                    </div>
+                    <% } %>
+                </div>
+                <% if(numberOfPage > 1) { %>
+                <div class="mt-4 row bknow-collection d-flex justify-content-center">
+                    <div class="navigation">
+                        <ul class="pagination">
+                            <% if(typeof(q) == 'undefined' || !q) {%>
+                            <li>
+                                <a href="/services?page=1" aria-label="Previous">
+                                    <span aria-hidden="true">&laquo;</span>
+                                </a>
+                            </li>
+                            <% for(let i = 0; i < numberOfPage; i++) { %>
+                            <li class="  <% if( i + 1 == +page) { %> <%= 'active' %> <% } %>"><a
+                                    href="/services?page=<%= i + 1 %>"><%= i + 1 %></a></li>
+                            <% } %>
+                            <li>
+                                <a href="/services?page=<%= numberOfPage %>" aria-label="Next">
+                                    <span aria-hidden="true">&raquo;</span>
+                                </a>
+                            </li>
+                            <% } else { %>
+                            <li>
+                                <a href="/search?q=<%= q %>&page=1" aria-label="Previous">
+                                    <span aria-hidden="true">&laquo;</span>
+                                </a>
+                            </li>
+                            <% for(let i = 0; i < numberOfPage; i++) { %>
+                            <li class="  <% if( i + 1 == +page) { %> <%= 'active' %> <% } %>"><a
+                                    href="/search?q=<%= q %>&page=<%= i + 1 %>"><%= i + 1 %></a></li>
+                            <% } %>
+                            <li>
+                                <a href="/search?q=<%= q %>&page=<%= numberOfPage %> " aria-label="Next">
+                                    <span aria-hidden="true">&raquo;</span>
+                                </a>
+                            </li>
+                            <% } %>
+                        </ul>
+                    </div>
+                </div>
+                <% } %>
+                <!-- pagination  -->
+            </div>
+    </div>
+    </section>
+</div>
+</div>

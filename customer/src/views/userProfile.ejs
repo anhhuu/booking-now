@@ -1,0 +1,919 @@
+<style type="text/css">
+    @charset "UTF-8";
+
+
+    .form-control {
+        display: block;
+        width: 100%;
+        height: 34px;
+        padding: 6px 12px;
+        font-size: 14px;
+        line-height: 1.428571429;
+        color: #555;
+        vertical-align: middle;
+        background-color: #fff;
+        border: 1px solid #ccc;
+        outline: none;
+        -webkit-appearance: none;
+        border-radius: 0;
+        box-shadow: none
+    }
+
+    audio:not([controls]) {
+        display: none;
+        height: 0
+    }
+
+    [hidden],
+    template {
+        display: none
+    }
+
+    a {
+        background-color: transparent
+    }
+
+    a:active,
+    a:hover {
+        outline: 0
+    }
+
+    abbr[title] {
+        border-bottom: 1px dotted
+    }
+
+    b,
+    strong {
+        font-weight: bold
+    }
+
+    dfn {
+        font-style: italic
+    }
+
+    h1 {
+        font-size: 2em;
+        margin: .67em 0
+    }
+
+    mark {
+        background: #ff0;
+        color: #000
+    }
+
+    small {
+        font-size: 80%
+    }
+
+    sub,
+    sup {
+        font-size: 75%;
+        line-height: 0;
+        position: relative;
+        vertical-align: baseline
+    }
+
+    sup {
+        top: -.5em
+    }
+
+    sub {
+        bottom: -.25em
+    }
+
+    img {
+        border: 0
+    }
+
+    svg:not(:root) {
+        overflow: hidden
+    }
+
+    figure {
+        margin: 1em 40px
+    }
+
+    hr {
+        -webkit-box-sizing: content-box;
+        -moz-box-sizing: content-box;
+        box-sizing: content-box;
+        height: 0
+    }
+
+    pre {
+        overflow: auto
+    }
+
+    code,
+    kbd,
+    pre,
+    samp {
+        font-family: monospace, monospace;
+        font-size: 1em
+    }
+
+    button,
+    input,
+    optgroup,
+    select,
+    textarea {
+        color: inherit;
+        font: inherit;
+        margin: 0
+    }
+
+    button {
+        overflow: visible
+    }
+
+    button,
+    select {
+        text-transform: none
+    }
+
+    button,
+    html input[type="button"],
+    input[type="reset"],
+    input[type="submit"] {
+        -webkit-appearance: button;
+        cursor: pointer
+    }
+
+    button[disabled],
+    html input[disabled] {
+        cursor: default
+    }
+
+    button::-moz-focus-inner,
+    input::-moz-focus-inner {
+        border: 0;
+        padding: 0
+    }
+
+    input {
+        line-height: normal
+    }
+
+    input[type="checkbox"],
+    input[type="radio"] {
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+        padding: 0
+    }
+
+    input[type="number"]::-webkit-inner-spin-button,
+    input[type="number"]::-webkit-outer-spin-button {
+        height: auto
+    }
+
+    input[type="search"] {
+        -webkit-appearance: textfield;
+        -webkit-box-sizing: content-box;
+        -moz-box-sizing: content-box;
+        box-sizing: content-box
+    }
+
+    input[type="search"]::-webkit-search-cancel-button,
+    input[type="search"]::-webkit-search-decoration {
+        -webkit-appearance: none
+    }
+
+    fieldset {
+        border: 1px solid silver;
+        margin: 0 2px;
+        padding: .35em .625em .75em
+    }
+
+    legend {
+        border: 0;
+        padding: 0
+    }
+
+    textarea {
+        overflow: auto
+    }
+
+    optgroup {
+        font-weight: bold
+    }
+
+
+    .container,
+    .wapcontent {
+        margin-right: auto;
+        margin-left: auto;
+        padding-left: 6px;
+        padding-right: 6px
+    }
+
+    .container:before,
+    .container:after,
+    .wapcontent:before,
+    .wapcontent:after {
+        content: " ";
+        display: table
+    }
+
+    .container:after,
+    .wapcontent:after {
+        clear: both
+    }
+
+    @media(min-width:992px) {
+        .container {
+            width: 970px
+        }
+    }
+
+    @media(min-width:1140px)and (max-width:1200px) {
+        .container {
+            width: 1130px;
+            padding: 0
+        }
+
+        .wapcontent {
+            width: 100%;
+            padding: 0
+        }
+
+        .search-fixed .input-group {
+            top: 6px;
+            width: 160px
+        }
+    }
+
+    @media(min-width:1200px)and (max-width:1300px) {
+        .container {
+            width: 1200px
+        }
+
+        .wapcontent {
+            width: 100%
+        }
+    }
+
+    @media(min-width:1300px) {
+        .container {
+            width: 1280px
+        }
+
+        .wapcontent {
+            width: 100%
+        }
+    }
+
+    .container-fluid {
+        margin-right: auto;
+        margin-left: auto;
+        padding-left: 15px;
+        padding-right: 15px
+    }
+
+    .container-fluid:before,
+    .container-fluid:after {
+        content: " ";
+        display: table
+    }
+
+    .container-fluid:after {
+        clear: both
+    }
+
+    .row {
+        margin-right: -6px;
+        margin-left: -6px
+    }
+
+    .row:before,
+    .row:after {
+        display: table;
+        content: " "
+    }
+
+    .row:after {
+        clear: both
+    }
+
+    .row:before,
+    .row:after {
+        display: table;
+        content: " "
+    }
+
+    .row:after {
+        clear: both
+    }
+
+    .col-md-1,
+    .col-md-2,
+    .col-md-3,
+    .col-md-4,
+    .col-md-5,
+    .col-md-6,
+    .col-md-7,
+    .col-md-8,
+    .col-md-9,
+    .col-md-10,
+    .col-md-11,
+    .col-md-12 {
+        position: relative;
+        min-height: 1px;
+        padding-left: 0px;
+        padding-right: 0px
+    }
+
+    @media(min-width:768px) {
+
+        .col-md-1,
+        .col-md-2,
+        .col-md-3,
+        .col-md-4,
+        .col-md-5,
+        .col-md-6,
+        .col-md-7,
+        .col-md-8,
+        .col-md-9,
+        .col-md-10,
+        .col-md-11,
+        .col-md-12 {
+            float: left
+        }
+
+        .col-md-1 {
+            width: 8.33333%
+        }
+
+        .col-md-2 {
+            width: 16.66667%
+        }
+
+        .col-md-3 {
+            width: 25%
+        }
+
+        .col-md-4 {
+            width: 33.33333%
+        }
+
+        .col-md-5 {
+            width: 41.66667%
+        }
+
+        .col-md-6 {
+            width: 50%
+        }
+
+        .col-md-7 {
+            width: 58.33333%
+        }
+
+        .col-md-8 {
+            width: 66.66667%
+        }
+
+        .col-md-9 {
+            width: 75%
+        }
+
+        .col-md-10 {
+            width: 83.33333%
+        }
+
+        .col-md-11 {
+            width: 91.66667%
+        }
+
+        .col-md-12 {
+            width: 100%
+        }
+    }
+
+    .modal-open {
+        overflow: hidden
+    }
+
+    .modal {
+        display: none;
+        overflow: hidden;
+        position: fixed;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        z-index: 1050;
+        -webkit-overflow-scrolling: touch;
+        outline: 0
+    }
+
+
+    .wapper-content {
+        position: relative;
+        float: left;
+        display: block;
+        width: 100%;
+        clear: both;
+        background: #eee
+    }
+
+    .wap-account {
+        position: relative;
+        display: block;
+        width: 100%;
+        clear: both;
+        background: #fff;
+        min-height: 200px;
+        margin-top: 10px
+    }
+
+    .wap-account .col-md-4 ul {
+        padding: 0;
+        margin: 0;
+        border: 1px solid #ccc;
+        float: left;
+        display: block;
+        width: 100%
+    }
+
+    .wap-account .col-md-4 ul li:first-child .col-md-4 {
+        text-align: center
+    }
+
+    .wap-account .col-md-4 ul li {
+        list-style: none;
+        padding: 10px;
+        border-bottom: 1px solid #ccc;
+        position: relative;
+        float: left;
+        width: 100%
+    }
+
+    .wap-account .col-md-4 ul li #btn-delete {
+        border: 1px solid #d02028;
+        padding: 2px 12px;
+        background: #d02028;
+        color: #fff;
+        border-radius: 20px;
+        font-size: 13px;
+        opacity: 0
+    }
+
+    .wap-account .col-md-4 ul li img {
+        width: 60px;
+        height: 60px;
+        margin: 0 auto
+    }
+
+    .wap-account .col-md-4 ul li a {
+        text-decoration: none;
+        color: #000;
+        font-size: 14px;
+        line-height: 16px;
+        padding: 5px 5px;
+        display: block
+    }
+
+    .wap-account .col-md-4 ul li a .pasgo-icondesktop-menublack {
+        float: right
+    }
+
+    .wap-account .col-md-4 ul li a span {
+        color: #838383
+    }
+
+    .wap-account .col-md-4 ul li a:hover {
+        color: #d02028
+    }
+
+    .wap-account .col-md-4 ul li a:hover span {
+        color: #d02028
+    }
+
+    .wap-account .col-md-4 ul li .text-manage {
+        display: block;
+        padding: 5px 0;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 14px;
+    }
+
+    .wap-account .col-md-4 ul li .text-manage span {
+        color: gray;
+        font-size: 14px;
+        font-weight: bold;
+        padding: 5px 0
+    }
+
+    .wap-account .col-md-4 ul li .btn-file {
+        margin-top: 5px
+    }
+
+    .wap-account .col-md-4 ul li .btn-file label {
+        border: 1px solid #3d7ff8;
+        padding: 4px 5px;
+        border-radius: 16px;
+        background: #3d7ff8;
+        color: #fff;
+        font-size: 13px;
+        box-shadow: 0 1px 2px #aaa
+    }
+
+    .wap-account .col-md-4 ul li .btn-file label #file {
+        width: .5px;
+        display: none
+    }
+
+    .wap-account .col-md-4 ul .col-md-8 {
+        background-color: transparent;
+        padding-top: 15px
+    }
+
+    .wap-account .col-md-4 ul li:last-child {
+        border-bottom: none
+    }
+
+    .wap-account .col-md-8 {
+        background: rgba(0, 0, 0, .02);
+        padding-right: 10px;
+    }
+
+    .wap-account .col-md-8 .facebook {
+        position: absolute;
+        padding: 11px 25px;
+        font-size: 25px;
+        font-weight: bold;
+        color: #191db0;
+        border-right: 1px solid #c5c5c5
+    }
+
+    .wap-account .breadcrumb {
+        padding: 0 10px;
+        margin: 0;
+        font-size: medium;
+    }
+
+    .wap-account .breadcrumb li {
+        list-style: none;
+        float: left;
+        padding: 15px 10px 15px 0
+    }
+
+    .wap-account .breadcrumb li a {
+        text-decoration: none;
+        color: #797878
+    }
+
+    .wap-account .breadcrumb li a:hover {
+        color: #d02028
+    }
+
+    .wap-account .breadcrumb li:last-child span {
+        color: #d02028;
+        font-weight: bold
+    }
+
+    .wap-account h1 {
+        font-size: 20px;
+        font-family: Roboto-Bold;
+        font-weight: normal;
+        line-height: 24px;
+        margin: 20px 0;
+        text-align: center;
+        text-transform: uppercase
+    }
+
+    .wap-account .sex {
+        padding: 10px 10px;
+        font-size: 14px;
+    }
+
+    .wap-account .sex label {
+        margin: 20px;
+        cursor: pointer
+    }
+
+    .wap-account .sex label .radio {
+        position: relative;
+        top: 2px
+    }
+
+    .wap-account .form-group {
+        width: auto;
+        margin: 0 auto;
+        display: block;
+        position: relative
+    }
+
+    .wap-account .form-group .input-group-addon {
+        padding-left: 10px;
+        color: #000;
+        border: none;
+        width: 100px;
+        text-align: left
+    }
+
+    .wap-account .form-group .input-group {
+        margin-bottom: 12px;
+        width: 100%
+    }
+
+    .wap-account .form-group .form-control {
+        height: 40px;
+        max-width: 340px
+    }
+
+    .wap-account .form-group .txt-list {
+        line-height: 36px !important;
+        padding: 0 10px !important
+    }
+
+    .wap-account .form-group .btn-register {
+        display: inline-block;
+        background: #d02028;
+        font-size: 14px;
+        color: #fff;
+        padding: 10px 20px;
+        text-align: center;
+        margin-left: 10px;
+        margin-bottom: 60px
+    }
+
+    .wap-account .form-group .row .col-md-12 {
+        padding-left: 15px;
+        color: #797878
+    }
+
+    .wap-account .form-group .row .col-md-3 {
+        margin: 15px 0
+    }
+
+    .wap-account .form-group .row .col-md-3 label {
+        display: inline-block;
+        width: 100%;
+        padding: 5px 10px
+    }
+
+    .wap-account .form-group .row .col-md-3 input {
+        position: relative;
+        margin-right: 10px;
+        top: 2px;
+        cursor: pointer
+    }
+
+    .wapper {
+        position: relative;
+        display: block;
+        float: left;
+        width: 100%;
+        clear: both;
+        background: #fff;
+        min-height: 200px;
+        margin-bottom: 8px;
+        box-shadow: 0 1px 6px #dcdcdc
+    }
+
+    .wapper .waphuongdan {
+        margin: 30px 0;
+        text-align: center
+    }
+
+    .wapper .waphuongdan h2 {
+        font-size: 18px;
+        font-family: Roboto-Bold;
+        font-weight: normal;
+        line-height: 22px;
+        margin: 10px 0
+    }
+
+    .wapper .waphuongdan .line-tutorial {
+        margin: 15px auto;
+        display: block;
+        width: 120px;
+        border: 0;
+        border-top: 1px solid #eee
+    }
+
+    .wapper .waphuongdan img {
+        margin-top: 30px;
+        margin-left: auto;
+        margin-right: auto;
+        display: block
+    }
+</style>
+<div class="wapper-content" style="margin-top: 5rem;">
+    <div class="container">
+        <div class="wapper wap-account">
+            <div class="wapcontent">
+                <div class="row">
+                    <div class="col-md-12">
+                        <ul class="breadcrumb" itemscope itemtype="http://schema.org/BreadcrumbList">
+                            <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+                                <a itemprop="item" href="https://pasgo.vn/ho-chi-minh"> <span itemprop="name">Trang
+                                        chủ</span></a> <span>></span>
+                                <meta itemprop="position" content="1" />
+                            </li>
+                            <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+                                <span itemprop="name"> Thông tin tài khoản</span>
+                                <meta itemprop="position" content="2" />
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <form action="/thong-tin-tai-khoan" class="form-group" enctype="multipart/form-data" method="post">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <ul>
+                                <li>
+                                    <div class="row">
+                                        <div class="col-md-4 category-profile">
+                                            <img src="https://pasgo.vn/Assets/Images/no_avatar.png"
+                                                id="img-avatar-profile" class="img-circle img-responsive"
+                                                alt="Pham Huu" />
+                                            <span class="file-input  btn-file">
+                                                <label>
+                                                    <input type="file" name="file" id="file"
+                                                        onchange="imgchange(event)" /> chọn ảnh
+                                                </label>
+                                            </span>
+                                        </div>
+                                        <div class="col-md-8">
+                                            <div class="text-manage"><span>DT : </span>+84854503234</div>
+                                            <button onclick="cancelImage();" type="button" id="btn-delete">Xóa</button>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <a href="https://pasgo.vn/thong-tin-tai-khoan"><span
+                                            class="glyphicon glyphicon-user"></span> Thông tin tài khoản <span
+                                            class="pasgo-icondesktop-menublack"></span></a>
+                                </li>
+                                <li>
+                                    <a href="https://pasgo.vn/quan-ly-mat-khau"><span
+                                            class="glyphicon glyphicon-lock"></span> Quản lý mật khẩu <span
+                                            class="pasgo-icondesktop-menublack"></span></a>
+                                </li>
+                                <li>
+                                    <a href="https://pasgo.vn/lich-su-dat-cho"><span
+                                            class="glyphicon glyphicon-calendar"></span> Lịch sử đặt chỗ <span
+                                            class="pasgo-icondesktop-menublack"></span></a>
+                                </li>
+                                <li>
+                                    <a href="https://pasgo.vn/dang-xuat"><span
+                                            class="glyphicon glyphicon-log-out"></span> Thoát <span
+                                            class="pasgo-icondesktop-menublack"></span></a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="col-md-8">
+                            <h1>Thông tin tài khoản</h1>
+                            <input data-val="true" data-val-required="The Id field is required." id="Id" name="Id"
+                                type="hidden" value="18547134-4bfa-468d-9669-4486fb66ee7b" />
+                            <input id="AreaCareNames" name="AreaCareNames" type="hidden" value="" />
+
+                            <div class="input-group">
+                                <span class="input-group-addon">Tên: </span>
+                                <input class="form-control text-box single-line" id="Name" name="Name"
+                                    placeholder="Họ và tên..." type="text" value="Pham Huu" />
+                                <span class="field-validation-valid text-danger" data-valmsg-for="Name"
+                                    data-valmsg-replace="true"></span>
+                            </div>
+                            <div class="input-group">
+                                <span class="input-group-addon">Email: </span>
+                                <input class="form-control text-box single-line" data-val="true"
+                                    data-val-email="Email của bạn không đúng định dạng" id="Email" name="Email"
+                                    placeholder="Email..." type="email" value="anhhuuqb@gmail.com" />
+                                <span class="field-validation-valid text-danger" data-valmsg-for="Email"
+                                    data-valmsg-replace="true"></span>
+                            </div>
+                            <div class="input-group">
+                                <span class="input-group-addon">Ngày sinh:</span>
+                                <select class="form-control" id="day-birth" name="Ngay">
+                                    <option>01</option>
+                                    <option>02</option>
+                                    <option>03</option>
+                                    <option>04</option>
+                                    <option>05</option>
+                                    <option>06</option>
+                                    <option>07</option>
+                                    <option>08</option>
+                                    <option>09</option>
+                                    <option>10</option>
+                                    <option>11</option>
+                                    <option>12</option>
+                                    <option>13</option>
+                                    <option>14</option>
+                                    <option>15</option>
+                                    <option>16</option>
+                                    <option>17</option>
+                                    <option>18</option>
+                                    <option>19</option>
+                                    <option>20</option>
+                                    <option>21</option>
+                                    <option>22</option>
+                                    <option>23</option>
+                                    <option>24</option>
+                                    <option>25</option>
+                                    <option>26</option>
+                                    <option>27</option>
+                                    <option>28</option>
+                                    <option>29</option>
+                                    <option>30</option>
+                                    <option>31</option>
+                                </select>
+                                <div class="input-group-addon">Tháng:</div>
+                                <select class="form-control" id="mon-birth" name="Thang">
+                                    <option>Th&#225;ng 01</option>
+                                    <option>Th&#225;ng 02</option>
+                                    <option>Th&#225;ng 03</option>
+                                    <option>Th&#225;ng 04</option>
+                                    <option>Th&#225;ng 05</option>
+                                    <option>Th&#225;ng 06</option>
+                                    <option>Th&#225;ng 07</option>
+                                    <option>Th&#225;ng 08</option>
+                                    <option>Th&#225;ng 09</option>
+                                    <option>Th&#225;ng 10</option>
+                                    <option>Th&#225;ng 11</option>
+                                    <option>Th&#225;ng 12</option>
+                                </select>
+                                <div class="input-group-addon">Năm:</div>
+                                <select class="form-control" id="year-birth" name="Nam">
+                                    <option>1945</option>
+                                    <option>1946</option>
+                                    <option>1947</option>
+                                    <option>1948</option>
+                                    <option>1949</option>
+                                    <option>1950</option>
+                                    <option>1951</option>
+                                    <option>1952</option>
+                                    <option>1953</option>
+                                    <option>1954</option>
+                                    <option>1955</option>
+                                    <option>1956</option>
+                                    <option>1957</option>
+                                    <option>1958</option>
+                                    <option>1959</option>
+                                    <option>1960</option>
+                                    <option>1961</option>
+                                    <option>1962</option>
+                                    <option>1963</option>
+                                    <option>1964</option>
+                                    <option>1965</option>
+                                    <option>1966</option>
+                                    <option>1967</option>
+                                    <option>1968</option>
+                                    <option>1969</option>
+                                    <option>1970</option>
+                                    <option>1971</option>
+                                    <option>1972</option>
+                                    <option>1973</option>
+                                    <option>1974</option>
+                                    <option>1975</option>
+                                    <option>1976</option>
+                                    <option>1977</option>
+                                    <option>1978</option>
+                                    <option>1979</option>
+                                    <option>1980</option>
+                                    <option>1981</option>
+                                    <option>1982</option>
+                                    <option>1983</option>
+                                    <option>1984</option>
+                                    <option>1985</option>
+                                    <option>1986</option>
+                                    <option>1987</option>
+                                    <option>1988</option>
+                                    <option>1989</option>
+                                    <option>1990</option>
+                                    <option>1991</option>
+                                    <option>1992</option>
+                                    <option>1993</option>
+                                    <option>1994</option>
+                                    <option>1995</option>
+                                    <option>1996</option>
+                                    <option>1997</option>
+                                    <option>1998</option>
+                                    <option>1999</option>
+                                    <option>2000</option>
+                                    <option>2001</option>
+                                    <option>2002</option>
+                                </select>
+                            </div>
+                            <div class="input-group sex">
+                                Giới tính:
+                                <label>
+                                    <input checked="checked" data-val="true"
+                                        data-val-required="The Giới tính: field is required." id="male" name="Gender"
+                                        type="radio" value="True" /> Nam
+                                </label>
+                                <label>
+                                    <input id="female" name="Gender" type="radio" value="False" /> Nữ
+                                </label>
+                            </div>
+
+
+                            <input type="submit" class="btn btn-register" value="Cập nhật" />
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
