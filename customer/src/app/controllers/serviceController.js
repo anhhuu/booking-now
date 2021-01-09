@@ -25,3 +25,7 @@ module.exports.showService = async(req, res, next) => {
         service: service
     })
 }
+
+module.exports.exportData = async(req, res, next) => {
+    res.json({ message: "Hhey here is your data!" })
+}
