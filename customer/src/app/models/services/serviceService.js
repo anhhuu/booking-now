@@ -54,7 +54,7 @@ module.exports.getListFlashsale = async(page, limit) => {
         if (!limit) {
             limit = 10;
         }
-        const services = await Service.find({ flashsale: { $gt: 1 } }).skip(page * limit - limit).limit(limit).lean();
+        const services = await Service.find({ flash_sale: { $gt: 1 } }).skip(page * limit - limit).limit(limit).lean();
         return services;
     } catch (error) {
         throw error;
@@ -142,6 +142,15 @@ module.exports.getByURL = async(url) => {
         return service;
     } catch (error) {
         throw error;
+    }
+}
+
+module.exports.getByID = async(id) => {
+    try {
+        const service = await Service.findById(id).lean();
+        return service;
+    } catch (error) {
+
     }
 }
 

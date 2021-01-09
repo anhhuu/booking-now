@@ -60,8 +60,7 @@ function onSubmitLoginForm() {
             },
             success: result => {
                 if (result.success == true) {
-                    window.location.replace("/");
-                    console.log(result);
+                    window.location.replace(window.location.href);
                 } else {
                     shakeModal();
                 }

@@ -5,6 +5,7 @@ const Schema = mongoose.Schema;
 const Booking = new Schema({
     amount_adult: { type: Number },
     amount_kid: { type: Number },
+    time: { type: String },
     status: { type: String },
     date_modified: { type: String },
     schedule: { type: String },

@@ -6,8 +6,6 @@ module.exports.index = async(req, res, next) => {
     const flashsaleServices = await serviceService.getListFlashsale(1, 6);
     const newerServices = await serviceService.getList(Math.floor(Math.random() * 3) + 1, 8);
     const recommendServices = await serviceService.getList(Math.floor(Math.random() * 8) + 4, 8);
-
-    //console.log(sliderServices);
     res.render('index', {
         title: 'Đặt bàn online với Booking Now',
         sliderServices: sliderServices.services,
