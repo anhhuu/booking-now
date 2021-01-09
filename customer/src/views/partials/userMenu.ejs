@@ -1,0 +1,38 @@
+<div class="col-md-4">
+    <ul>
+        <li>
+            <div class="row">
+                <div class="col-md-4 category-profile">
+                    <img src="https://pasgo.vn/Assets/Images/no_avatar.png" id="img-avatar-profile"
+                        class="img-circle img-responsive" alt="Pham Huu" />
+                    <span class="file-input  btn-file">
+                        <label>
+                            <input type="file" name="file" id="file" onchange="imgchange(event)" /> chọn ảnh
+                        </label>
+                    </span>
+                </div>
+                <div class="col-md-8">
+                    <div class="text-manage"><span>DT : </span><%= user.phone_number %></div>
+                    <button onclick="cancelImage();" type="button" id="btn-delete">Xóa</button>
+                </div>
+            </div>
+        </li>
+        <li>
+            <a href="/users/profile"><span class="glyphicon glyphicon-user"></span> Thông tin
+                tài khoản
+                <span class="pasgo-icondesktop-menublack"></span></a>
+        </li>
+        <li>
+            <a href="/users/password"><span class="glyphicon glyphicon-lock"></span> Quản lý mật
+                khẩu <span class="pasgo-icondesktop-menublack"></span></a>
+        </li>
+        <li>
+            <a href="/bookings/history"><span class="glyphicon glyphicon-calendar"></span> Lịch
+                sử đặt chỗ <span class="pasgo-icondesktop-menublack"></span></a>
+        </li>
+        <li>
+            <a href="/logout"><span class="glyphicon glyphicon-log-out"></span> Thoát <span
+                    class="pasgo-icondesktop-menublack"></span></a>
+        </li>
+    </ul>
+</div>

@@ -26,9 +26,10 @@
                         <div class="error"></div>
                         <div class="form loginBox">
                             <form id="loginForm" method="POST" action="/login" accept-charset="UTF-8">
-                                <input class="form-control" type="email" placeholder="Email" name="email" id="email">
+                                <input class="form-control" type="email" placeholder="Email" name="email" id="email"
+                                    required>
                                 <input class="form-control" type="password" placeholder="Password" name="password"
-                                    id="password">
+                                    id="password" required>
                                 <input class="btn btn-default btn-login" type="submit" value="Login">
                             </form>
                         </div>
@@ -39,10 +40,14 @@
                         <div class="form">
                             <form method="POST" html="{:multipart=>true}" data-remote="true" action="/register"
                                 accept-charset="UTF-8">
-                                <input class="form-control" type="email" placeholder="Email" name="email">
-                                <input class="form-control" type="password" placeholder="Password" name="password">
+                                <input class="form-control" type="email" placeholder="Email*" name="email" required>
+                                <input class="form-control" type="text" placeholder="SĐT*" name="phone_number" required>
+                                <input class="form-control" type="text" placeholder="Họ và Tên*" name="full_name"
+                                    required>
+                                <input class="form-control" type="password" placeholder="Password*" name="password"
+                                    required>
                                 <input id="password_confirmation" class="form-control" type="password"
-                                    placeholder="Repeat Password" name="password_confirmation">
+                                    placeholder="Repeat Password*" name="password_confirmation" required>
                                 <input class="btn btn-default btn-register" type="submit" value="Create account"
                                     name="commit">
                             </form>

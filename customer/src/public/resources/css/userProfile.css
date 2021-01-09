@@ -1,0 +1,482 @@
+    @charset "UTF-8";
+    .container,
+    .wapcontent {
+        margin-right: auto;
+        margin-left: auto;
+        padding-left: 6px;
+        padding-right: 6px
+    }
+    
+    .container:before,
+    .container:after,
+    .wapcontent:before,
+    .wapcontent:after {
+        content: " ";
+        display: table
+    }
+    
+    .container:after,
+    .wapcontent:after {
+        clear: both
+    }
+    
+    @media(min-width:992px) {
+        .container {
+            width: 970px
+        }
+    }
+    
+    @media(min-width:1140px)and (max-width:1200px) {
+        .container {
+            width: 1130px;
+            padding: 0
+        }
+        .wapcontent {
+            width: 100%;
+            padding: 0
+        }
+        .search-fixed .input-group {
+            top: 6px;
+            width: 160px
+        }
+    }
+    
+    @media(min-width:1200px)and (max-width:1300px) {
+        .container {
+            width: 1200px
+        }
+        .wapcontent {
+            width: 100%
+        }
+    }
+    
+    @media(min-width:1300px) {
+        .container {
+            width: 1280px
+        }
+        .wapcontent {
+            width: 100%
+        }
+    }
+    
+    .container-fluid {
+        margin-right: auto;
+        margin-left: auto;
+        padding-left: 15px;
+        padding-right: 15px
+    }
+    
+    .container-fluid:before,
+    .container-fluid:after {
+        content: " ";
+        display: table
+    }
+    
+    .container-fluid:after {
+        clear: both
+    }
+    
+    .row {
+        margin-right: -6px;
+        margin-left: -6px
+    }
+    
+    .row:before,
+    .row:after {
+        display: table;
+        content: " "
+    }
+    
+    .row:after {
+        clear: both
+    }
+    
+    .row:before,
+    .row:after {
+        display: table;
+        content: " "
+    }
+    
+    .row:after {
+        clear: both
+    }
+    
+    .col-md-1,
+    .col-md-2,
+    .col-md-3,
+    .col-md-4,
+    .col-md-5,
+    .col-md-6,
+    .col-md-7,
+    .col-md-8,
+    .col-md-9,
+    .col-md-10,
+    .col-md-11,
+    .col-md-12 {
+        position: relative;
+        min-height: 1px;
+        padding-left: 0px;
+        padding-right: 0px
+    }
+    
+    @media(min-width:768px) {
+        .col-md-1,
+        .col-md-2,
+        .col-md-3,
+        .col-md-4,
+        .col-md-5,
+        .col-md-6,
+        .col-md-7,
+        .col-md-8,
+        .col-md-9,
+        .col-md-10,
+        .col-md-11,
+        .col-md-12 {
+            float: left
+        }
+        .col-md-1 {
+            width: 8.33333%
+        }
+        .col-md-2 {
+            width: 16.66667%
+        }
+        .col-md-3 {
+            width: 25%
+        }
+        .col-md-4 {
+            width: 33.33333%
+        }
+        .col-md-5 {
+            width: 41.66667%
+        }
+        .col-md-6 {
+            width: 50%
+        }
+        .col-md-7 {
+            width: 58.33333%
+        }
+        .col-md-8 {
+            width: 66.66667%
+        }
+        .col-md-9 {
+            width: 75%
+        }
+        .col-md-10 {
+            width: 83.33333%
+        }
+        .col-md-11 {
+            width: 91.66667%
+        }
+        .col-md-12 {
+            width: 100%
+        }
+    }
+    
+    .modal-open {
+        overflow: hidden
+    }
+    
+    .modal {
+        display: none;
+        overflow: hidden;
+        position: fixed;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        z-index: 1050;
+        -webkit-overflow-scrolling: touch;
+        outline: 0
+    }
+    
+    .wapper-content {
+        position: relative;
+        float: left;
+        display: block;
+        width: 100%;
+        clear: both;
+        background: #eee
+    }
+    
+    .wap-account {
+        position: relative;
+        display: block;
+        width: 100%;
+        clear: both;
+        background: #fff;
+        min-height: 200px;
+        margin-top: 10px
+    }
+    
+    .wap-account .col-md-4 ul {
+        padding: 0;
+        margin: 0;
+        border: 1px solid #ccc;
+        float: left;
+        display: block;
+        width: 100%
+    }
+    
+    .wap-account .col-md-4 ul li:first-child .col-md-4 {
+        text-align: center
+    }
+    
+    .wap-account .col-md-4 ul li {
+        list-style: none;
+        padding: 10px;
+        border-bottom: 1px solid #ccc;
+        position: relative;
+        float: left;
+        width: 100%
+    }
+    
+    .wap-account .col-md-4 ul li #btn-delete {
+        border: 1px solid #d02028;
+        padding: 2px 12px;
+        background: #d02028;
+        color: #fff;
+        border-radius: 20px;
+        font-size: 13px;
+        opacity: 0
+    }
+    
+    .wap-account .col-md-4 ul li img {
+        width: 60px;
+        height: 60px;
+        margin: 0 auto
+    }
+    
+    .wap-account .col-md-4 ul li a {
+        text-decoration: none;
+        color: #000;
+        font-size: 14px;
+        line-height: 16px;
+        padding: 5px 5px;
+        display: block
+    }
+    
+    .wap-account .col-md-4 ul li a .pasgo-icondesktop-menublack {
+        float: right
+    }
+    
+    .wap-account .col-md-4 ul li a span {
+        color: #838383
+    }
+    
+    .wap-account .col-md-4 ul li a:hover {
+        color: #d02028
+    }
+    
+    .wap-account .col-md-4 ul li a:hover span {
+        color: #d02028
+    }
+    
+    .wap-account .col-md-4 ul li .text-manage {
+        display: block;
+        padding: 5px 0;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 14px;
+    }
+    
+    .wap-account .col-md-4 ul li .text-manage span {
+        color: gray;
+        font-size: 14px;
+        font-weight: bold;
+        padding: 5px 0
+    }
+    
+    .wap-account .col-md-4 ul li .btn-file {
+        margin-top: 5px
+    }
+    
+    .wap-account .col-md-4 ul li .btn-file label {
+        border: 1px solid #3d7ff8;
+        padding: 4px 5px;
+        border-radius: 16px;
+        background: #3d7ff8;
+        color: #fff;
+        font-size: 13px;
+        box-shadow: 0 1px 2px #aaa
+    }
+    
+    .wap-account .col-md-4 ul li .btn-file label #file {
+        width: .5px;
+        display: none
+    }
+    
+    .wap-account .col-md-4 ul .col-md-8 {
+        background-color: transparent;
+        padding-top: 15px
+    }
+    
+    .wap-account .col-md-4 ul li:last-child {
+        border-bottom: none
+    }
+    
+    .wap-account .col-md-8 {
+        background: rgba(0, 0, 0, .02);
+        padding-right: 10px;
+    }
+    
+    .wap-account .col-md-8 .facebook {
+        position: absolute;
+        padding: 11px 25px;
+        font-size: 25px;
+        font-weight: bold;
+        color: #191db0;
+        border-right: 1px solid #c5c5c5
+    }
+    
+    .wap-account .breadcrumb {
+        padding: 0 10px;
+        margin: 0;
+        font-size: medium;
+    }
+    
+    .wap-account .breadcrumb li {
+        list-style: none;
+        float: left;
+        padding: 15px 10px 15px 0
+    }
+    
+    .wap-account .breadcrumb li a {
+        text-decoration: none;
+        color: #797878
+    }
+    
+    .wap-account .breadcrumb li a:hover {
+        color: #d02028
+    }
+    
+    .wap-account .breadcrumb li:last-child span {
+        color: #d02028;
+        font-weight: bold
+    }
+    
+    .wap-account h1 {
+        font-size: 20px;
+        font-family: Roboto-Bold;
+        font-weight: normal;
+        line-height: 24px;
+        margin: 20px 0;
+        text-align: center;
+        text-transform: uppercase
+    }
+    
+    .wap-account .sex {
+        padding: 10px 10px;
+        font-size: 14px;
+    }
+    
+    .wap-account .sex label {
+        margin: 20px;
+        cursor: pointer
+    }
+    
+    .wap-account .sex label .radio {
+        position: relative;
+        top: 2px
+    }
+    
+    .wap-account .form-group {
+        width: auto;
+        margin: 0 auto;
+        display: block;
+        position: relative
+    }
+    
+    .wap-account .form-group .input-group-addon {
+        padding-left: 10px;
+        color: #000;
+        border: none;
+        width: 100px;
+        text-align: left
+    }
+    
+    .wap-account .form-group .input-group {
+        margin-bottom: 12px;
+        width: 100%
+    }
+    
+    .wap-account .form-group .form-control {
+        height: 40px;
+        max-width: 340px
+    }
+    
+    .wap-account .form-group .txt-list {
+        line-height: 36px !important;
+        padding: 0 10px !important
+    }
+    
+    .wap-account .form-group .btn-register {
+        display: inline-block;
+        background: #d02028;
+        font-size: 14px;
+        color: #fff;
+        padding: 10px 20px;
+        text-align: center;
+        margin-left: 10px;
+        margin-bottom: 60px
+    }
+    
+    .wap-account .form-group .row .col-md-12 {
+        padding-left: 15px;
+        color: #797878
+    }
+    
+    .wap-account .form-group .row .col-md-3 {
+        margin: 15px 0
+    }
+    
+    .wap-account .form-group .row .col-md-3 label {
+        display: inline-block;
+        width: 100%;
+        padding: 5px 10px
+    }
+    
+    .wap-account .form-group .row .col-md-3 input {
+        position: relative;
+        margin-right: 10px;
+        top: 2px;
+        cursor: pointer
+    }
+    
+    .wapper {
+        position: relative;
+        display: block;
+        float: left;
+        width: 100%;
+        clear: both;
+        background: #fff;
+        min-height: 200px;
+        margin-bottom: 8px;
+        box-shadow: 0 1px 6px #dcdcdc
+    }
+    
+    .wapper .waphuongdan {
+        margin: 30px 0;
+        text-align: center
+    }
+    
+    .wapper .waphuongdan h2 {
+        font-size: 18px;
+        font-family: Roboto-Bold;
+        font-weight: normal;
+        line-height: 22px;
+        margin: 10px 0
+    }
+    
+    .wapper .waphuongdan .line-tutorial {
+        margin: 15px auto;
+        display: block;
+        width: 120px;
+        border: 0;
+        border-top: 1px solid #eee
+    }
+    
+    .wapper .waphuongdan img {
+        margin-top: 30px;
+        margin-left: auto;
+        margin-right: auto;
+        display: block
+    }
