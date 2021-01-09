@@ -1,0 +1,56 @@
+<style type="text/css">
+    @import url("/resources/css/userProfile.css");
+</style>
+<div class="wapper-content" style="margin-top: 5rem;">
+    <div class="container">
+        <div class="wapper wap-account">
+            <div class="wapcontent">
+                <div class="row">
+                    <div class="col-md-12">
+                        <ul class="breadcrumb" itemscope itemtype="http://schema.org/BreadcrumbList">
+                            <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+                                <a itemprop="item" href="/"> <span itemprop="name">Trang
+                                        chủ</span></a> <span>></span>
+                                <meta itemprop="position" content="1" />
+                            </li>
+                            <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+                                <span itemprop="name"> DANH SÁCH DỊCH VỤ</span>
+                                <meta itemprop="position" content="2" />
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <form action="/admin/profile" class="form-group" method="post">
+                    <div class="row">
+                        <%- include('./providerMenu.ejs')  %>
+                        <div class="col-md-8">
+                            <h1>DANH SÁCH DỊCH VỤ</h1>
+                            <div class="card d-flex flex-row">
+                                <img src="https://pasgo.vn/Assets/Images/no_avatar.png" height="128px" width="128px">
+                                <div class="card" style="width:100%">
+                                    <h5 class="card-header d-flex justify-content-center">TÊN </h5>
+                                    <div class="card-body">
+                                        <h5 class="card-title">Ngày giờ </h5>
+                                        <p class="card-text">Địa chỉ: ....................</p>
+                                    </div>
+                                </div>
+
+                                <div class="d-flex align-items-center  justify-content-lg-end">
+                                    <button type="button" class=" btn btn-register "
+                                        style="margin-bottom:0!important; margin-right:10px!important;"><svg
+                                            xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                            fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
+                                            <path
+                                                d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456l-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z" />
+                                            <path fill-rule="evenodd"
+                                                d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z" />
+                                        </svg></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
