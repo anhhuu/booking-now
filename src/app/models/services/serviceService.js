@@ -201,3 +201,27 @@ module.exports.getAwaitingList = async(page, limit) => {
         throw error;
     }
 }
+
+module.exports.reject = async(id) => {
+    try {
+        const service = await Service.findById(id);
+        await service.updateOne({
+            status: 'rejected'
+        })
+
+    } catch (error) {
+        throw error;
+    }
+}
+
+module.exports.approve = async(id) => {
+    try {
+        const service = await Service.findById(id);
+        await service.updateOne({
+            status: 'approved'
+        })
+
+    } catch (error) {
+        throw error;
+    }
+}

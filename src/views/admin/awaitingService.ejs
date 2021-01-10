@@ -24,27 +24,35 @@
                     <div class="row">
                         <%- include('./adminMenu.ejs')  %>
 
-                            <div class="col-md-8">
-                                <h1>DỊCH VỤ ĐANG CHỜ DUYỆT</h1>
-                                <% for(let i = 0; i < services.length; i++) { %>
-                                    <div class="card d-flex flex-row p-3 ">
-                                        <img style="object-fit: cover ;" src="<%= services[i].imgs_url[0] %>" height="128px" width="128px">
-                                        <div class="card" style="width:100%">
-                                            <h5 class="card-header d-flex justify-content-center">
-                                                <%= services[i].name %>
-                                            </h5>
-                                            <div class="card-body">
-                                                <h5 class="card-title">Địa chỉ:
-                                                    <%= services[i].address %>
-                                                </h5>
-                                                <h5 class="card-text">Hoạt động:
-                                                    <%= services[i].operating %>
-                                                </h5>
+                        <div class="col-md-8">
+                            <h1>DỊCH VỤ ĐANG CHỜ DUYỆT</h1>
+                            <% for(let i = 0; i < services.length; i++) { %>
+                            <div class="card d-flex flex-row p-3 ">
+                                <img style="object-fit: cover ;" src="<%= services[i].imgs_url[0] %>" height="128px"
+                                    width="128px">
+                                <div class="card" style="width:100%">
+                                    <h5 class="card-header d-flex justify-content-center">
+                                        <%= services[i].name %>
+                                    </h5>
+                                    <div class="card-body">
+                                        <h5 class="card-title">Địa chỉ:
+                                            <%= services[i].address %>
+                                        </h5>
+                                        <h5 class="card-text">Hoạt động:
+                                            <%= services[i].operating %>
+                                        </h5>
 
-                                            </div>
-                                        </div>
-                                        <div class="d-flex align-items-center  justify-content-lg-end">
-                                            <button type="button" class=" btn btn-register " style="margin-bottom:0!important; margin-right:10px!important;"><svg
+                                    </div>
+                                </div>
+                                <form action="/admin/reject" method="post" id=rejectForm>
+                                    <input type="text" name="service_id" value="<%= services[i]._id %>" hidden>
+                                </form>
+                                <form action="/admin/approve" method="post" id=approveForm>
+                                    <input type="text" name="service_id" value="<%= services[i]._id %>" hidden>
+                                </form>
+                                <div class="d-flex align-items-center  justify-content-lg-end">
+                                    <button type="submit" form="approveForm" class=" btn btn-register "
+                                        style="margin-bottom:0!important; margin-right:10px!important;"><svg
                                             xmlns="http://www.w3.org/2000/svg" width="16" height="16"
                                             fill="currentColor" class="bi bi-check2-square" viewBox="0 0 16 16">
                                             <path
@@ -52,7 +60,8 @@
                                             <path
                                                 d="M8.354 10.354l7-7a.5.5 0 0 0-.708-.708L8 9.293 5.354 6.646a.5.5 0 1 0-.708.708l3 3a.5.5 0 0 0 .708 0z" />
                                         </svg></button>
-                                            <button type="button" class="btn btn-register " style="margin-bottom:0!important;margin-right:10px!important;"><svg
+                                    <button type="submit" form="rejectForm" class="btn btn-register "
+                                        style="margin-bottom:0!important;margin-right:10px!important;"><svg
                                             xmlns="http://www.w3.org/2000/svg" width="16" height="16"
                                             fill="currentColor" class="bi bi-file-excel" viewBox="0 0 16 16">
                                             <path
@@ -60,58 +69,58 @@
                                             <path
                                                 d="M4 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H4zm0 1h8a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1z" />
                                         </svg></button>
-                                        </div>
-                                    </div>
-                                    <% } %>
+                                </div>
                             </div>
+                            <% } %>
+                        </div>
                     </div>
                 </form>
             </div>
         </div>
     </div>
     <% if(numberOfPage > 1) { %>
-        <div class="mt-4 row bknow-collection d-flex justify-content-center">
-            <div class="navigation">
-                <ul class="pagination">
-                    <% if(typeof(q) == 'undefined' || !q) {%>
-                        <li>
-                            <a href="admin/services/awaiting?page=1" aria-label="Previous">
-                                <span aria-hidden="true">&laquo;</span>
-                            </a>
-                        </li>
-                        <% for(let i = 0; i < numberOfPage; i++) { %>
-                            <li class="  <% if( i + 1 == +page) { %> <%= 'active' %> <% } %>">
-                                <a href="admin/services/awaiting?page=<%= i + 1 %>">
-                                    <%= i + 1 %>
-                                </a>
-                            </li>
-                            <% } %>
-                                <li>
-                                    <a href="admin/services/awaiting?page=<%= numberOfPage %>" aria-label="Next">
-                                        <span aria-hidden="true">&raquo;</span>
-                                    </a>
-                                </li>
-                                <% } else { %>
-                                    <li>
-                                        <a href="admin/services/awaiting/search?q=<%= q %>&page=1" aria-label="Previous">
-                                            <span aria-hidden="true">&laquo;</span>
-                                        </a>
-                                    </li>
-                                    <% for(let i = 0; i < numberOfPage; i++) { %>
-                                        <li class="  <% if( i + 1 == +page) { %> <%= 'active' %> <% } %>">
-                                            <a href="admin/services/awaiting/search?q=<%= q %>&page=<%= i + 1 %>">
-                                                <%= i + 1 %>
-                                            </a>
-                                        </li>
-                                        <% } %>
-                                            <li>
-                                                <a href="admin/services/awaiting/search?q=<%= q %>&page=<%= numberOfPage %> " aria-label="Next">
-                                                    <span aria-hidden="true">&raquo;</span>
-                                                </a>
-                                            </li>
-                                            <% } %>
-                </ul>
-            </div>
+    <div class="mt-4 row bknow-collection d-flex justify-content-center">
+        <div class="navigation">
+            <ul class="pagination">
+                <% if(typeof(q) == 'undefined' || !q) {%>
+                <li>
+                    <a href="admin/services/awaiting?page=1" aria-label="Previous">
+                        <span aria-hidden="true">&laquo;</span>
+                    </a>
+                </li>
+                <% for(let i = 0; i < numberOfPage; i++) { %>
+                <li class="  <% if( i + 1 == +page) { %> <%= 'active' %> <% } %>">
+                    <a href="admin/services/awaiting?page=<%= i + 1 %>">
+                        <%= i + 1 %>
+                    </a>
+                </li>
+                <% } %>
+                <li>
+                    <a href="admin/services/awaiting?page=<%= numberOfPage %>" aria-label="Next">
+                        <span aria-hidden="true">&raquo;</span>
+                    </a>
+                </li>
+                <% } else { %>
+                <li>
+                    <a href="admin/services/awaiting/search?q=<%= q %>&page=1" aria-label="Previous">
+                        <span aria-hidden="true">&laquo;</span>
+                    </a>
+                </li>
+                <% for(let i = 0; i < numberOfPage; i++) { %>
+                <li class="  <% if( i + 1 == +page) { %> <%= 'active' %> <% } %>">
+                    <a href="admin/services/awaiting/search?q=<%= q %>&page=<%= i + 1 %>">
+                        <%= i + 1 %>
+                    </a>
+                </li>
+                <% } %>
+                <li>
+                    <a href="admin/services/awaiting/search?q=<%= q %>&page=<%= numberOfPage %> " aria-label="Next">
+                        <span aria-hidden="true">&raquo;</span>
+                    </a>
+                </li>
+                <% } %>
+            </ul>
         </div>
-        <% } %>
+    </div>
+    <% } %>
 </div>
