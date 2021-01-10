@@ -8,7 +8,7 @@ module.exports.profile = async(req, res, next) => {
     res.render('admin/adminProfile')
 }
 module.exports.getSetting = async(req, res, next) => {
-    let service = await serviceService.getByID(req);
+    let service = await serviceService.getByID(req.params.id);
     res.render('admin/serviceSetting', {
         service: service,
     })

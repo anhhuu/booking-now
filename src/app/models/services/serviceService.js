@@ -146,9 +146,9 @@ module.exports.getByURL = async(url) => {
     }
 }
 
-module.exports.getByID = async(req) => {
+module.exports.getByID = async(id) => {
     try {
-        const service = await Service.findById({ _id: req.params.id }).lean();
+        const service = await Service.findById({ _id: id }).lean();
         console.log(service)
         return service;
     } catch (error) {
