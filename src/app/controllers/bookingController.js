@@ -29,5 +29,5 @@ module.exports.getHistoryPage = async(req, res, next) => {
     }
     console.log(bookings);
 
-    res.render('bookingHistory', { bookings: bookings });
+    res.render('customer/bookingHistory', { bookings: bookings });
 }
