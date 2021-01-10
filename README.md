@@ -7,3 +7,11 @@ Hướng dẫn cài đặt:
 + Gõ lệnh: npm install (để cài đặt lib cho project)
 + Gõ lệnh: npm run dev (chạy server)
 + Sau khi connect database thành công thì sử dụng trình duyệt truy cập địa chỉ: localhost:4000 để chạy website.
+
+Tài khoản ADMIN:
+email: admin@bookingnow.com
+password: admin
+
+Tài khoản PROVIDER:
+email: provider@bookingnow.com
+password: provider
