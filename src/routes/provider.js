@@ -1,12 +1,12 @@
 const express = require('express');
 const router = express.Router();
-const userController = require('../app/controllers/userController')
 const providerController = require('../app/controllers/providerController')
 
 
+
+router.get('/profile', providerController.profile)
+router.get('/password', providerController.getPasswordManagerPage);
+router.get('/setting/:id', providerController.getSetting);
 router.get('/services/list', providerController.getListPage);
-//router.get('/services/awaiting', serviceController.awaiting);
-
-//router.get('/password', userController.getPasswordManagerPage);
-
+router.get('/services/userlist', providerController.getUserList)
 module.exports = router;

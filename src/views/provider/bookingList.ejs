@@ -1,0 +1,64 @@
+<style type="text/css">
+    @import url("/resources/css/userProfile.css");
+</style>
+<div class="wapper-content" style="margin-top: 5rem;">
+    <div class="container">
+        <div class="wapper wap-account">
+            <div class="wapcontent">
+                <div class="row">
+                    <div class="col-md-12">
+                        <ul class="breadcrumb" itemscope itemtype="http://schema.org/BreadcrumbList">
+                            <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+                                <a itemprop="item" href="/"> <span itemprop="name">Trang
+                                        chủ</span></a> <span>></span>
+                                <meta itemprop="position" content="1" />
+                            </li>
+                            <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+                                <span itemprop="name"> Thông tin tài khoản</span>
+                                <meta itemprop="position" content="2" />
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div action="/users/profile" class="form-group" method="post">
+                    <div class="row">
+                        <%- include('./providerMenu.ejs')  %>
+                            <div class="col-md-8">
+                                <h1>LỊCH SỬ ĐẶT CHỖ</h1>
+                                <% for(let i = 0; i < bookings.length; i++) { %>
+                                    <div class="card d-flex flex-row" style="margin-top: 0.4rem;">
+                                        <img style="object-fit: cover!important;" src="<%= bookings[i].service.imgs_url[0] %>" height="128px" width="128px">
+                                        <div class="card" style="width:100%">
+                                            <h5 class="card-header d-flex justify-content-center">
+                                                <%= bookings[i].service.name %>
+                                            </h5>
+                                            <div class="card-body">
+                                                <h5 class="card-title">Thời gian:
+                                                    <%= bookings[i].schedule %> -
+                                                        <%= bookings[i].time %>
+                                                </h5>
+                                                <h5 class="card-title">Trạng thái:
+                                                    <%= bookings[i].status === 'waiting' ? 'Đang chờ' : bookings[i].status === 'cancel' ? 'Đã huỷ' : 'Đã xác nhận' %>
+                                                </h5>
+                                                <p class="card-text" style="font-size: 11px;">Địa chỉ:
+                                                    <%= bookings[i].service.address %>
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <div class="d-flex align-items-center justify-content-lg-end">
+                                            <a type="button" class=" btn btn-register" href="/services/<%= bookings[i].service.url %>" target="_blank" style="margin-bottom:0!important; margin-right:10px!important;">Đánh
+                                        giá</a>
+                                            <form action="/bookings/cancel" method="POST" id="cancel<%= i+1 %>">
+                                                <input type="text" name="booking_id" value="<%= bookings[i]._id %>" hidden>
+                                                <button type="submit" form="cancel<%= i+1 %>" class="btn btn-register" <% if(bookings[i].status !=='waiting' ) { %> <%= 'disabled' %> <% } %>
+                                            style="margin-bottom:0!important;margin-right:10px!important;">Huỷ</button>
+                                            </form>
+                                        </div>
+                                    </div>
+                                    <% } %>
+                            </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
