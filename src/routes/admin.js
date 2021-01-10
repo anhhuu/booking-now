@@ -12,8 +12,8 @@ router.get('/password', adminController.getPasswordManagerPage);
 
 router.get('/setting/:id', adminController.getSetting);
 
-router.post('/reject/:id', adminController.reject);
-router.post('/approve/:id', adminController.approve);
+router.post('/reject', adminController.reject);
+router.post('/approve', adminController.approve);
 router.post('/setting/update/:id', providerController.update);
 router.post('/setting/status/:id', providerController.changeStatus);
 router.post('/export/:id', serviceController.exportData)

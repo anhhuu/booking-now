@@ -15,6 +15,7 @@ const Service = new Schema({
     flash_sale: Number,
     menu_imgs: Array,
     address_img: Object,
+    status: String,
     provider_id: { type: mongoose.Schema.Types.ObjectId, ref: "User" },
     type_id: { type: mongoose.Schema.Types.ObjectId, ref: "Type" },
 }, {
