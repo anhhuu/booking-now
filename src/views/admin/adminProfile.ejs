@@ -1,0 +1,69 @@
+<style type="text/css">
+    @import url("/resources/css/userProfile.css");
+</style>
+<div class="wapper-content" style="margin-top: 5rem;">
+    <div class="container">
+        <div class="wapper wap-account">
+            <div class="wapcontent">
+                <div class="row">
+                    <div class="col-md-12">
+                        <ul class="breadcrumb" itemscope itemtype="http://schema.org/BreadcrumbList">
+                            <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+                                <a itemprop="item" href="/"> <span itemprop="name">Trang
+                                        chủ</span></a> <span>></span>
+                                <meta itemprop="position" content="1" />
+                            </li>
+                            <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+                                <span itemprop="name"> Thông tin tài khoản</span>
+                                <meta itemprop="position" content="2" />
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <form action="/admin/profile" class="form-group" method="post">
+                    <div class="row">
+                        <%- include('./adminMenu.ejs')  %>
+                            <div class="col-md-8">
+                                <h1>Thông tin tài khoản</h1>
+                                <input data-val="true" id="Id" name="user_id" type="hidden" value="<%= user._id %>" />
+
+                                <div class="input-group">
+                                    <span class="input-group-addon">Tên: </span>
+                                    <input class="form-control text-box single-line" id="Name" name="full_name" placeholder="Họ và tên..." type="text" value="<%= user.full_name %>" />
+                                    <span class="field-validation-valid text-danger" data-valmsg-for="Name" data-valmsg-replace="true"></span>
+                                </div>
+                                <div class="input-group">
+                                    <span class="input-group-addon">Email: </span>
+                                    <input class="form-control text-box single-line" data-val="true" data-val-email="Email của bạn không đúng định dạng" id="Email" name="email" placeholder="Email..." type="email" value="<%= user.email %>" disabled />
+                                    <span class="field-validation-valid text-danger" data-valmsg-for="Email" data-valmsg-replace="true"></span>
+                                </div>
+
+                                <div class="input-group sex">
+                                    Giới tính:
+                                    <% if(user.gender == 'female') { %>
+                                        <label>
+                                    <input data-val-required="The Giới tính: field is required." id="male" name="gender"
+                                        type="radio" value="male" /> Nam
+                                </label>
+                                        <label>
+                                    <input checked="checked" id="female" name="gender" type="radio" value="female" /> Nữ
+                                </label>
+                                        <% } else { %>
+                                            <label>
+                                    <input checked="checked" data-val-required="The Giới tính: field is required."
+                                        id="male" name="gender" type="radio" value="male" /> Nam
+                                </label>
+                                            <label>
+                                    <input id="female" name="gender" type="radio" value="female" /> Nữ
+                                </label>
+                                            <% } %>
+                                </div>
+                                <input type="submit" class="btn btn-register" value="Cập nhật" />
+                            </div>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+    </div>
+</div>

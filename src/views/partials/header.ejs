@@ -1,9 +1,9 @@
 <div class="header">
     <nav class="navbar fixed-top bg-danger py-0">
         <a class="navbar-brand py-0" href="/">
-            <img class="img-fluid" id="logo" src="/resources/img/booking_now_200x200_white.png" width="50" height="50"
-                loading="lazyload" alt="logo">
+            <img class="img-fluid" id="logo" src="/resources/img/booking_now_200x200_white.png" width="50" height="50" loading="lazyload" alt="logo">
         </a>
+
         <form action="/search" method="GET" id="searchForm">
             <div class="d-flex justify-content-center">
                 <div class="d-flex justify-content-center h-100">
@@ -17,8 +17,7 @@
         </form>
 
         <div class="dropdown">
-            <button class="btn btn-danger dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
-                aria-haspopup="true" aria-expanded="false">
+            <button class="btn btn-danger dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <svg width="2.5rem" height="2.5rem" viewBox="0 0 16 16" class="bi bi-list" fill="currentColor"
                     xmlns="http://www.w3.org/2000/svg">
                     <path fill-rule="evenodd"
@@ -35,40 +34,38 @@
                 <span class="caret"></span>
             </button>
             <% if(!user) { %>
-            <div class="dropdown-menu bg-transparent dropdown-menu-right animate" aria-labelledby="dropdownMenuButton">
-                <a class="dropdown-item btn big-register" data-toggle="modal" href="javascript:void(0)"
-                    onclick="openLoginModal();">Log in</a>
-                <a class="dropdown-item btn big-register" data-toggle="modal" href="javascript:void(0)"
-                    onclick="openRegisterModal();">Register</a>
-                <a class="dropdown-item btn big-register" href="#"> Host</a>
-                <a class="dropdown-item btn big-register" href="#footer"> Contact</a>
-            </div>
-            <% } else if(user.role.name==='customer'){ %>
-            <div class="dropdown-menu bg-transparent dropdown-menu-right animate" aria-labelledby="dropdownMenuButton">
-                <a class="dropdown-item btn big-register" href="/users/profile">Thông
+                <div class="dropdown-menu bg-transparent dropdown-menu-right animate" aria-labelledby="dropdownMenuButton">
+                    <a class="dropdown-item btn big-register" data-toggle="modal" href="javascript:void(0)" onclick="openLoginModal();">Log in</a>
+                    <a class="dropdown-item btn big-register" data-toggle="modal" href="javascript:void(0)" onclick="openRegisterModal();">Register</a>
+                    <a class="dropdown-item btn big-register" href="#"> Host</a>
+                    <a class="dropdown-item btn big-register" href="#footer"> Contact</a>
+                </div>
+                <% } else if(user.role.name==='customer'){ %>
+                    <div class="dropdown-menu bg-transparent dropdown-menu-right animate" aria-labelledby="dropdownMenuButton">
+                        <a class="dropdown-item btn big-register" href="/users/profile">Thông
                     tin tài khoản</a>
-                <a class="dropdown-item btn big-register" href="/users/password">Quản lý mật khẩu</a>
-                <a class="dropdown-item btn big-register" href="/bookings/history">Lịch
+                        <a class="dropdown-item btn big-register" href="/users/password">Quản lý mật khẩu</a>
+                        <a class="dropdown-item btn big-register" href="/bookings/history">Lịch
                     sử đặt chỗ</a>
-                <a class="dropdown-item btn big-register" href="/logout">Đăng xuất</a>
-            </div>
-            <% } else if(user.role.name==='admin'){ %>
-            <div class="dropdown-menu bg-transparent dropdown-menu-right animate" aria-labelledby="dropdownMenuButton">
-                <a class="dropdown-item btn big-register" href="/admin/password">Quản lý mật khẩu</a>
-                <a class="dropdown-item btn big-register" href="#">Quản lý dịch vụ</a>
-                <a class="dropdown-item btn big-register" href="/admin/services/awaiting">Đang chờ duyệt</a>
-                <a class="dropdown-item btn big-register" href="/logout">Đăng xuất</a>
-            </div>
-            <% } else if(user.role.name==='provider'){ %>
-            <div class="dropdown-menu bg-transparent dropdown-menu-right animate" aria-labelledby="dropdownMenuButton">
-                <a class="dropdown-item btn big-register" href="/provider/profile">Thông
+                        <a class="dropdown-item btn big-register" href="/logout">Đăng xuất</a>
+                    </div>
+                    <% } else if(user.role.name==='admin'){ %>
+                        <div class="dropdown-menu bg-transparent dropdown-menu-right animate" aria-labelledby="dropdownMenuButton">
+                            <a class="dropdown-item btn big-register" href="/admin/password">Quản lý mật khẩu</a>
+                            <a class="dropdown-item btn big-register" href="/admin/services/list">Quản lý dịch vụ</a>
+                            <a class="dropdown-item btn big-register" href="/admin/services/awaiting">Đang chờ duyệt</a>
+                            <a class="dropdown-item btn big-register" href="/logout">Đăng xuất</a>
+                        </div>
+                        <% } else if(user.role.name==='provider'){ %>
+                            <div class="dropdown-menu bg-transparent dropdown-menu-right animate" aria-labelledby="dropdownMenuButton">
+                                <a class="dropdown-item btn big-register" href="/provider/profile">Thông
                     tin tài khoản</a>
-                <a class="dropdown-item btn big-register" href="/provider/password">Quản lý mật khẩu</a>
-                <a class="dropdown-item btn big-register" href="#">Lịch đặt chỗ</a>
-                <a class="dropdown-item btn big-register" href="/provider/services/list">Danh sách dịch vụ</a>
-                <a class="dropdown-item btn big-register" href="/logout">Đăng xuất</a>
-            </div>
-            <% } %>
+                                <a class="dropdown-item btn big-register" href="/provider/password">Quản lý mật khẩu</a>
+                                <a class="dropdown-item btn big-register" href="#">Lịch đặt chỗ</a>
+                                <a class="dropdown-item btn big-register" href="/provider/services/list">Danh sách dịch vụ</a>
+                                <a class="dropdown-item btn big-register" href="/logout">Đăng xuất</a>
+                            </div>
+                            <% } %>
         </div>
     </nav>
 </div>

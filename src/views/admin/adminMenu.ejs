@@ -1,23 +1,16 @@
 <div class="col-md-4">
     <ul>
         <li>
-            <div class="row">
-                <div class="col-md-4 category-profile">
-                    <img src="https://pasgo.vn/Assets/Images/no_avatar.png" id="img-avatar-profile"
-                        class="img-circle img-responsive" alt="Pham Huu" />
-                    <span class="file-input  btn-file">
-                        <label>
-                            <input type="file" name="file" id="file" onchange="imgchange(event)" /> chọn ảnh
-                        </label>
-                    </span>
-                </div>
-                <div class="col-md-8">
-                    <div class="text-manage"><span>DT : </span>
-                        <%= user.phone_number %>
+            <a href="/admin/profile">
+                <div class="row">
+                    <div class="col-md-4 category-profile">
+                        <img src="https://pasgo.vn/Assets/Images/no_avatar.png" id="img-avatar-profile" class="img-circle img-responsive" />
                     </div>
-                    <button onclick="cancelImage();" type="button" id="btn-delete">Xóa</button>
+                    <div class="col-md-8">
+                        <div class="text-manage">ADMIN</div>
+                    </div>
                 </div>
-            </div>
+            </a>
         </li>
         <li>
             <a href="/admin/password"><span class="glyphicon glyphicon-lock"></span> Quản lý mật

@@ -1,4 +1,5 @@
 const Service = require('../mongooseModels/Service');
+const createErr = require('http-errors')
 
 module.exports.getList = async(page, limit) => {
     try {
@@ -145,12 +146,13 @@ module.exports.getByURL = async(url) => {
     }
 }
 
-module.exports.getByID = async(id) => {
+module.exports.getByID = async(req) => {
     try {
-        const service = await Service.findById(id).lean();
+        const service = await Service.findById({ _id: req.params.id }).lean();
+        console.log(service)
         return service;
     } catch (error) {
-
+        createErr(404)
     }
 }
 
@@ -175,6 +177,26 @@ module.exports.save = async(serviceObj) => {
 
         await service.save();
 
+    } catch (error) {
+        throw error;
+    }
+}
+
+module.exports.getAwaitingList = async(page, limit) => {
+    try {
+        if (!page) {
+            page = 1;
+        }
+        if (!limit) {
+            limit = 10;
+        }
+        const services = await Service.find({ status: "awaiting" }).skip(page * limit - limit).limit(limit).lean();
+        const total = await Service.find({ status: "awaiting" }).countDocuments();
+        numberOfPage = total / limit;
+        return {
+            services,
+            numberOfPage
+        }
     } catch (error) {
         throw error;
     }
