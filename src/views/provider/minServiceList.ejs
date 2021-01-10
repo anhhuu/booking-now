@@ -65,6 +65,51 @@
                             </div>
                     </div>
                 </form>
+                <% if(numberOfPage > 1) { %>
+                    <div class="mt-4 row bknow-collection d-flex justify-content-center">
+                        <div class="navigation">
+                            <ul class="pagination">
+                                <% if(typeof(q) == 'undefined' || !q) {%>
+                                    <li>
+                                        <a href="/admin/services/list?page=1" aria-label="Previous">
+                                            <span aria-hidden="true">&laquo;</span>
+                                        </a>
+                                    </li>
+                                    <% for(let i = 0; i < numberOfPage; i++) { %>
+                                        <li class="  <% if( i + 1 == +page) { %> <%= 'active' %> <% } %>">
+                                            <a href="/admin/services/list?page=<%= i + 1 %>">
+                                                <%= i + 1 %>
+                                            </a>
+                                        </li>
+                                        <% } %>
+                                            <li>
+                                                <a href="/admin/services/list?page=<%= numberOfPage %>" aria-label="Next">
+                                                    <span aria-hidden="true">&raquo;</span>
+                                                </a>
+                                            </li>
+                                            <% } else { %>
+                                                <li>
+                                                    <a href="/admin/services/list/search?q=<%= q %>&page=1" aria-label="Previous">
+                                                        <span aria-hidden="true">&laquo;</span>
+                                                    </a>
+                                                </li>
+                                                <% for(let i = 0; i < numberOfPage; i++) { %>
+                                                    <li class="  <% if( i + 1 == +page) { %> <%= 'active' %> <% } %>">
+                                                        <a href="/admin/services/list/search?q=<%= q %>&page=<%= i + 1 %>">
+                                                            <%= i + 1 %>
+                                                        </a>
+                                                    </li>
+                                                    <% } %>
+                                                        <li>
+                                                            <a href="/admin/services/list/search?q=<%= q %>&page=<%= numberOfPage %> " aria-label="Next">
+                                                                <span aria-hidden="true">&raquo;</span>
+                                                            </a>
+                                                        </li>
+                                                        <% } %>
+                            </ul>
+                        </div>
+                    </div>
+                    <% } %>
             </div>
         </div>
     </div>

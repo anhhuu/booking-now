@@ -138,8 +138,6 @@ module.exports.getByURL = async(url) => {
             }
         }
         service.timeArr = timeArr;
-        console.log(timeArr);
-        console.log(operating_time);
         return service;
     } catch (error) {
         throw error;
@@ -192,6 +190,25 @@ module.exports.getAwaitingList = async(page, limit) => {
         }
         const services = await Service.find({ status: "awaiting" }).skip(page * limit - limit).limit(limit).lean();
         const total = await Service.find({ status: "awaiting" }).countDocuments();
+        numberOfPage = total / limit;
+        return {
+            services,
+            numberOfPage
+        }
+    } catch (error) {
+        throw error;
+    }
+}
+module.exports.getProviderServices = async(page, limit, provider_id) => {
+    try {
+        if (!page) {
+            page = 1;
+        }
+        if (!limit) {
+            limit = 10;
+        }
+        const services = await Service.find({ provider_id }).skip(page * limit - limit).limit(limit).lean();
+        const total = await Service.find({ provider_id }).countDocuments();
         numberOfPage = total / limit;
         return {
             services,

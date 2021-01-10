@@ -16,19 +16,11 @@ module.exports.changeStatus = async(req, res, next) => {
 
 module.exports.getListPage = async(req, res, next) => {
     let page = req.query.page;
-    let provider = req.user._id;
-    let bookings = await bookingService.getByUserID(provider);
-    for (let i = 0; i < bookings.length; i++) {
-        const service = await serviceService.getByID(bookings[i].service_id);
-        bookings[i].service = service;
-    }
-
-    res.render('customer/bookingHistory', { bookings: bookings });
     if (!page) {
         page = 1;
     }
-    let data = await serviceService.getByID(page, 15);
-
+    let provider_id = req.user._id;
+    let data = await serviceService.getProviderServices(page, 10, provider_id)
     res.render('provider/minServiceList', {
         services: data.services,
         numberOfPage: data.numberOfPage,

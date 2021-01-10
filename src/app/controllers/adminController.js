@@ -44,14 +44,11 @@ module.exports.awaiting = async(req, res, next) => {
 module.exports.approve = async(req, res, next) => {
     //accept awaiting service
     //change service's status to Activated
-    await serviceService.approve(req.body.service_id);
-    res.redirect('/admin/services/awaiting');
+    res.json({ message: "Accept Service!!!" })
 }
 
 module.exports.reject = async(req, res, next) => {
-
     //reject awaiting service
     //delete service from database
-    await serviceService.reject(req.body.service_id);
-    res.redirect('/admin/services/awaiting');
+    res.json({ message: "Reject!!!!!" })
 }
