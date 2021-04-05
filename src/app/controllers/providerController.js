@@ -1,5 +1,6 @@
 const serviceService = require('../models/services/serviceService');
-
+const bookingService = require('../models/services/bookingService');
+const userService = require('../models/services/userService');
 
 module.exports.getSetting = async(req, res, next) => {
     let service = await serviceService.getByID(req.params.id);
@@ -34,6 +35,11 @@ module.exports.getPasswordManagerPage = async(req, res, next) => {
     res.render('provider/providerPassword');
 }
 module.exports.getUserList = async(req, res, next) => {
-
-    res.render('provider/bookingList')
+    const provider_id = req.user._id;
+    let bookings = await bookingService.getByUserID(provider_id);
+    for (let i = 0; i < bookings.length; i++) {
+        let customers = await userService.getByUsername(bookings[i].user_id)
+        customer[i] = customers;
+    }
+    res.render('provider/bookingList', { customer });
 }
